@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {Header} from "./Navbar/Header";
+import {SignIn} from "./User/SignIn/SignIn";
+import {HomeEvents} from "./Home/HomeEvents";
+import {AboutUs} from "./AboutUs/AboutUs";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <div className="header">
+                <Header/>
+            </div>
+            <div className="main">
+                <Route path={"/sign-in"} render={() =>
+                    <SignIn/>}>
+                </Route>
+                <Route path={"/home"} render={() =>
+                    <HomeEvents/>}>
+                </Route>
+                <Route path={"/about-us"} render={() =>
+                    <AboutUs/>}>
+                </Route>
+                {/*<Route path="/ingredients/:ingredientId/edit" render={() =>*/}
+            </div>
+        </div>
+    );
 }
 
-export default App;
+export default withRouter(App);

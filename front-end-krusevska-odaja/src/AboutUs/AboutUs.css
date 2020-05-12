@@ -1,0 +1,18 @@
+.line-div {
+    background-color: white;
+    border-radius: 15px;
+    height: 70px;
+}
+.line-div h2{
+    color: black;
+    padding-top: 10px;
+}
+
+.card a{
+    color: white;
+    text-decoration: none;
+}
+
+.card{
+    width: 500px;
+}
