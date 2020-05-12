@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 import "./Header.css";
 import logo from "./krusevska-odaja-logo.jpg";
 
-export const Header = () => {
+export const Header = (props) => {
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     return (
         <nav className="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
             <p className="navbar-brand"><img src={logo} alt="logo" width="80" height="60"/>Krusevska Odaja</p>
@@ -24,7 +25,6 @@ export const Header = () => {
                         </Link>
                     </li>
                     <li className="nav-item dropdown">
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-envelope-o">
@@ -60,7 +60,7 @@ export const Header = () => {
                         </Link>
                     </li>
                 </ul>
-                <ul className="navbar-nav ">
+                {currentUser === null ? <ul className="navbar-nav ">
                     <li className="nav-item">
                         <Link to={"/register"} className="nav-link" href="#">
                             <i className="fa fa-sign-in">
@@ -69,17 +69,21 @@ export const Header = () => {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={"/sign-in"} className="nav-link">
+                        <Link to={"/log-in"} className="nav-link">
                             <i className="fa fa-sign-in">
                             </i>
                             Log in
                         </Link>
                     </li>
-                </ul>
-                {/*<form className="form-inline my-2 my-lg-0">*/}
-                {/*    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>*/}
-                {/*    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>*/}
-                {/*</form>*/}
+                </ul> : <ul className="navbar-nav ">
+                    <li className="nav-item">
+                        <p className="nav-link" onClick={props.logOff}>
+                            Welcome {currentUser.name}
+                            <i className="fa fa-sign-out">
+                            </i>
+                        </p>
+                    </li>
+                </ul>}
             </div>
         </nav>
     )

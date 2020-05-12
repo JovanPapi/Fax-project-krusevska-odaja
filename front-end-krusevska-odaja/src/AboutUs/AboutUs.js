@@ -21,14 +21,14 @@ export function AboutUs() {
                         <div className="row">
                             <div className="col-md-6">
                                 <button type={"button"} className={"btn btn-info"}>
-                                    <a href={"https://github.com/JovanPapi"}>
+                                    <a className="aboutus-a" href={"https://github.com/JovanPapi"}>
                                         Github
                                     </a>
                                 </button>
                             </div>
                             <div className={"col-md-6"}>
                                 <button type={"button"} className={"btn btn-info"}>
-                                    <a href={"https://www.linkedin.com/in/jovan-papalazoski-3b2361183/"}>
+                                    <a className="aboutus-a" href={"https://www.linkedin.com/in/jovan-papalazoski-3b2361183/"}>
                                         LinkedIn
                                     </a>
                                 </button>
@@ -53,7 +53,7 @@ export function AboutUs() {
                     </div>
                 </div>
             </div>
+            <br/>
         </div>
     )
-
 }
