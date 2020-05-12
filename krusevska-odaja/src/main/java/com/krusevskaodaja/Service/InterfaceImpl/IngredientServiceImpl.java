@@ -1,20 +1,25 @@
 package com.krusevskaodaja.Service.InterfaceImpl;
 
 import com.krusevskaodaja.Model.Ingredient;
+import com.krusevskaodaja.Model.Product;
 import com.krusevskaodaja.Repository.JpaIngredientRepository;
 import com.krusevskaodaja.Service.IngredientService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class IngredientServiceImpl implements IngredientService {
 
     private final JpaIngredientRepository ingredientRepository;
+//    private final ProductServiceImpl productService;
 
     public IngredientServiceImpl(JpaIngredientRepository ingredientRepository) {
         this.ingredientRepository = ingredientRepository;
+//        this.productService = productService;
     }
 
 
@@ -23,7 +28,6 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredientRepository.findAll();
     }
 
-    // TODO ova mozi i da ne bidi dozvoleno!!
 //    @Override
 //    public boolean createIngredient(String name, String productName) {
 //        Optional<Ingredient> alreadyIn = ingredientRepository.findAll()
@@ -32,34 +36,35 @@ public class IngredientServiceImpl implements IngredientService {
 //                .findFirst();
 //        if (alreadyIn.isEmpty()) {
 //            Ingredient newIngredient = new Ingredient();
-//            //TODO ova moze da se napravi posebno i da bidi posebna funkcionalnost ( so product )
+//            List<Product> products = new ArrayList<>();
 //            Product product = productService.getProductByName(productName);
 //            if (product == null) {
 //                return false;
 //            }
+//            products.add(product);
 //            newIngredient.setId(UUID.randomUUID().toString());
 //            newIngredient.setName(name);
-//            newIngredient.setProduct(product);
+//            newIngredient.setProducts(products);
 //            ingredientRepository.save(newIngredient);
 //            return true;
 //        }
 //        return false;
-//        return true;
 //    }
 
-    // TODO ova mozi i da ne bidi dozvoleno!!
 //    @Override
 //    public boolean updateIngredient(String id, String name, String productName) {
 //        if (!ingredientRepository.existsById(id)) {
 //            return false;
 //        }
 //        Ingredient updateIngredient = ingredientRepository.getOne(id);
+//        List<Product> products = new ArrayList<>();
 //        Product product = productService.getProductByName(productName);
 //        if (product == null) {
 //            return false;
 //        }
+//        products.add(product);
 //        updateIngredient.setName(name);
-//        updateIngredient.setProductList(product);
+//        updateIngredient.setProducts(products);
 //        return true;
 //    }
 
