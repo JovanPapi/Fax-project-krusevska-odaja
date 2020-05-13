@@ -111,7 +111,7 @@ export class Profile extends React.Component {
                             <div className="container-footer">
                                 <div className="row">
                                     <div className="col-md-4">
-                                        <Link to={"/edit"} className="btn btn-warning">
+                                        <Link to={"/update-profile"} className="btn btn-warning">
                                             Update profile
                                         </Link>
                                     </div>

@@ -10,6 +10,7 @@ import {ProductService} from "./ServerRequests/ProductService";
 import {Register} from "./User/Register/Register";
 import {ChangePassword} from "./User/ChangePassword/ChangePassword";
 import {Profile} from "./User/Profile/Profile";
+import {UpdateProfile} from "./User/UpdateProfile/UpdateProfile";
 
 class App extends React.Component {
     constructor(props) {
@@ -48,16 +49,6 @@ class App extends React.Component {
             alert(response.data.message + " Click OK to proceed.");
             this.props.history.push("/log-in");
         }).catch(error => {
-            let fullName = registerData.name;
-            let username = registerData.username;
-            let email = registerData.email;
-            let firstNumber = registerData.phoneNumber[0];
-            let secondNumber = "";
-            if (registerData.phoneNumber[1] !== undefined) {
-                let secondNumber = "&phoneNumber2=" + registerData.phoneNumber[1];
-            }
-            // + "&fullName=" + fullName + "&username=" + username
-            // + "&email=" + email + "&phoneNumber1=" + firstNumber + secondNumber;
             let query = "?" + error.response.data.message;
             sessionStorage.setItem("error", "true");
             this.props.history.push({
@@ -86,11 +77,29 @@ class App extends React.Component {
         this.setState({currentUser: null});
         this.props.history.push("/log-in");
     };
+    userProfileUpdate = (userUpdateData) => {
+        UserService.modifyProfile(userUpdateData).then(response => {
+            alert(response.data.message);
+            sessionStorage.clear();
+            let user = this.state.currentUser;
+            user.fullName = userUpdateData.name;
+            user.username = userUpdateData.username;
+            user.phoneNumber[0].phoneNumber = userUpdateData.phoneNumber[0];
+            user.phoneNumber[1].phoneNumber = userUpdateData.phoneNumber[1];
+            sessionStorage.setItem("currentUser", JSON.stringify(user));
+            this.setState({currentUser: user});
+            this.props.history.push("/profile");
+        }).catch(error => {
+            let query = "?" + error.response.data.message;
+            sessionStorage.setItem("error", "true");
+            this.props.history.push({
+                pathname: "/update-profile",
+                search: query
+            })
+        })
+    };
     // pravi nesto problem so route patekite
-    // koga ke se pivika /profile/change-password se poremetuvaat scriptite koi se loadiraat od index.html stranata
-    // najverojatno treba profile so site ostanati akcii sto se na /profile/... da se oddelat
-    // so toa sto na /profile da napiseme exact path
-    // da, problemot bese za to so mislev :P
+    // koga ke se pivika /profile/change-password se poremetuvaat scriptite koi se loadiraat od index.html
     render() {
         return (
             <div className="App">
@@ -113,6 +122,10 @@ class App extends React.Component {
 
                     <Route exact path={"/profile"} render={() =>
                         <Profile logOff={this.userLogOff}/>}>
+                    </Route>
+
+                    <Route exact path={"/update-profile"} render={() =>
+                        <UpdateProfile update={this.userProfileUpdate}/>}>
                     </Route>
 
                     <Route path={"/change-password"} render={() =>

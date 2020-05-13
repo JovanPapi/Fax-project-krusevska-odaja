@@ -66,7 +66,7 @@ export const ChangePassword = (props) => {
                             <form onSubmit={handlePasswordChange}>
                                 <br/>
                                 <div className="row">
-                                    <div className="col-md-12">
+                                    <div className="col-md-11">
                                         <input type="email" className="form-control"
                                                placeholder="Email"
                                                required
@@ -75,11 +75,15 @@ export const ChangePassword = (props) => {
                                         <p className="text-warning" id={"warningEmail"}
                                            style={{display: 'hidden', marginBottom: 0}}></p>
                                     </div>
-
+                                    <div className="col-md-1">
+                                        <i className="fa fa-warning" style={{color: 'red'}}
+                                           title={"This field is to make sure you dont use another's email." +
+                                           " Please enter your email."}></i>
+                                    </div>
                                 </div>
                                 <br/>
                                 <div className="row">
-                                    <div className="col-md-12">
+                                    <div className="col-md-11">
                                         <input type="password" className="form-control"
                                                placeholder="Password"
                                                required
@@ -89,7 +93,7 @@ export const ChangePassword = (props) => {
                                 </div>
                                 <br/>
                                 <div className="row">
-                                    <div className="col-md-12">
+                                    <div className="col-md-11">
                                         <input type="password" className="form-control"
                                                placeholder="Confirm password"
                                                required
@@ -108,7 +112,7 @@ export const ChangePassword = (props) => {
                         </div>
                         {/*<div className="card-footer">*/}
                         {/*    <div className="d-flex justify-content-center">*/}
-                        {/*        Want to update your profile?<Link to={"/profile/update"}>Update profile</Link>*/}
+                        {/*        Want to update your profile?<Link to={"/profile/update"}>UpdateProfile profile</Link>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
                     </div>

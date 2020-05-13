@@ -1,52 +1,37 @@
 import React from "react";
-import "../LogIn/LogIn.css";
 import {Link, Redirect} from "react-router-dom";
 import $ from "jquery";
 
-export const Register = (props) => {
+export const UpdateProfile = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     const error = sessionStorage.getItem("error");
     if (error !== null && error.match("true")) {
         let urlSearchParams = window.location.search;
         let errorMessage = "";
-        let phoneNumber = 1;
         for (let i = 0; i < urlSearchParams.length; i++) {
-            if (urlSearchParams.charAt(i).match(/[a-zA-Z!.]/)) {
+            if (urlSearchParams.charAt(i).match(/[a-zA-Z.!]/)) {
                 errorMessage += urlSearchParams.charAt(i);
             } else if (urlSearchParams.charAt(i).match(/[%]/)) {
                 errorMessage += " ";
-            } else if (urlSearchParams.charAt(i).match(/[34]/)) {
-                phoneNumber = urlSearchParams.charAt(i);
             }
         }
-
-        $("#warningEmail").text("").hide();
-        $("#warningUsername").text("").hide();
-        $("#warningPhoneNumber1").text("").hide();
-        $("#warningPhoneNumber2").text("").hide();
-
-        if (errorMessage.includes("Email")) {
+        if (errorMessage.includes("email")) {
             $("#warningEmail").text(errorMessage).show();
-        } else if (errorMessage.includes("Username")) {
-            $("#warningUsername").text(errorMessage).show();
-        } else if (errorMessage.includes("number") && phoneNumber !== 1) {
-            phoneNumber -= 2;
-            $("#warningPhoneNumber" + phoneNumber).text(errorMessage).show();
+        } else {
+            $("#warningEmail").hide();
         }
         sessionStorage.setItem("error", "false");
     }
-    const handleRegister = (event) => {
+    const handleUpdate = (event) => {
         event.preventDefault();
 
         let fullName = event.target.inputFullName.value;
         let username = event.target.inputUsername.value;
         let email = event.target.inputEmail.value;
-        let password = event.target.inputPassword.value;
-        let confirmPassword = event.target.inputConfirmPassword.value;
         let phoneNumber1 = event.target.inputPhoneNumber1.value;
-
         let phoneNumber2 = "";
         let policyAndTerms = false;
+
         if ($("#inputPolicyAndTerms").is(":checked")) {
             policyAndTerms = true;
         }
@@ -59,54 +44,58 @@ export const Register = (props) => {
         if (phoneNumber2 !== "") {
             numbers.push(phoneNumber2);
         }
-
-        if (!validateData(email, password, confirmPassword)) {
+        if (!validateData(fullName, username, email)) {
             return;
         }
-        const userRegisterData = {
+
+        const userUpdateData = {
+            id: currentUser.id,
             name: fullName,
             username: username,
             email: email,
-            password: password,
             phoneNumber: numbers,
             termsChecked: policyAndTerms
         };
-        console.log(userRegisterData);
-        props.register(userRegisterData);
+        props.update(userUpdateData);
     };
+    const validateData = (fullName, username, email) => {
+        if (fullName.trim() === "") {
+            $("#warningFullName").text("The field must not be empty!").show();
+            return false;
+        } else {
+            $("#warningFullName").text("").hide();
+        }
 
-    const validateData = (email, password, confirmPassword) => {
-        if (!email.endsWith(".com")) {
-            $("#warningEmail").text("The email is not correct, it must end with '.com'. Please enter a valid email.").show();
+        if (username.trim() === "") {
+            $("#warningUsername").text("The field must not be empty!").show();
+            return false;
+        } else {
+            $("#warningUsername").text("").hide();
+        }
+
+        if (email.trim() === "") {
+            $("#warningEmail").text("The field must not be empty!").show();
             return false;
         } else {
             $("#warningEmail").text("").hide();
-        }
-        if (!confirmPassword.match(password)) {
-            $("#warningConfirmPassword").text("Confirm password doesnt match with the original!" +
-                " Please confirm above password correctly").show();
-            return false;
-        } else {
-            $("#warningConfirmPassword").text("").hide();
+
         }
         return true;
     };
-    const handlePhoneNumberAdd = () => {
-        let rowPhoneNumber2 = $(".rowPhoneNumber2");
-        if (!$("#inputPhoneNumber2").length) {
-            rowPhoneNumber2.append("<div class='col-md-6 haha'>" +
-                "<input type='tel' class='form-control' " +
-                "placeholder='07x xxx xxx' " +
-                "id='inputPhoneNumber2' " +
-                "name='inputPhoneNumber2' " +
-                "pattern='[07]{2}[0-9]{1} [0-9]{3} [0-9]{3}'>" +
-                "<p class='text-warning' id='warningPhoneNumber2' style='display: hidden'>" +
-                "</p></div>")
-        } else {
-            $(".haha").remove();
-        }
-    };
-    if (currentUser === null) {
+    if (currentUser !== null) {
+        let counter = 1;
+        const phoneNumberTds = currentUser.phoneNumber.map((number, key) => {
+            return (
+                <input type="tel" className="form-control"
+                       placeholder={number.phoneNumber}
+                       required
+                       id={"inputPhoneNumber" + counter}
+                       name={"inputPhoneNumber" + counter++}
+                       pattern="[07]{2}[0-9]{1} [0-9]{3} [0-9]{3}"
+                       key={key}
+                       style={{marginBottom: 5}}/>
+            )
+        });
         return (
             <div className="container">
                 <br/>
@@ -114,14 +103,14 @@ export const Register = (props) => {
                 <div className="d-flex justify-content-center h-100">
                     <div className="card card-signin bg-dark">
                         <div className="card-header">
-                            <h3>Register</h3>
+                            <h3>Update profile</h3>
                         </div>
                         <div className="card-body">
-                            <form onSubmit={handleRegister}>
+                            <form onSubmit={handleUpdate}>
                                 <div className="row">
                                     <div className="col-md-6">
                                         <input type="text" className="form-control"
-                                               placeholder="Full Name"
+                                               placeholder={currentUser.name}
                                                required
                                                id={"inputFullName"}
                                                name={"inputFullName"}/>
@@ -131,7 +120,7 @@ export const Register = (props) => {
 
                                     <div className="col-md-6">
                                         <input type="text" className="form-control"
-                                               placeholder="Username"
+                                               placeholder={currentUser.username}
                                                required
                                                id={"inputUsername"}
                                                name={"inputUsername"}/>
@@ -142,37 +131,19 @@ export const Register = (props) => {
                                 </div>
                                 <br/>
                                 <div className="row">
-                                    <div className="col-md-12">
+                                    <div className="col-md-11">
                                         <input type="email" className="form-control"
-                                               placeholder="Email"
+                                               placeholder={currentUser.email}
                                                required
                                                id={"inputEmail"}
                                                name={"inputEmail"}/>
                                         <p className="text-warning" id={"warningEmail"}
                                            style={{display: 'hidden', marginBottom: 0}}></p>
                                     </div>
-
-                                </div>
-                                <br/>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <input type="password" className="form-control"
-                                               placeholder="Password"
-                                               required
-                                               id={"inputPassword"}
-                                               name={"inputPassword"}/>
-                                    </div>
-                                </div>
-                                <br/>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <input type="password" className="form-control"
-                                               placeholder="Confirm password"
-                                               required
-                                               id={"inputConfirmPassword"}
-                                               name={"inputConfirmPassword"}/>
-                                        <p className="text-warning" id={"warningConfirmPassword"}
-                                           style={{display: 'hidden', marginBottom: 0}}></p>
+                                    <div className="col-md-1">
+                                        <i className="fa fa-warning" style={{color:'red'}}
+                                        title={"This field is to make sure you dont use another's email." +
+                                        " Please enter your email."}></i>
                                     </div>
 
                                 </div>
@@ -182,22 +153,10 @@ export const Register = (props) => {
                                         <p style={{color: 'white'}}>Enter the phone numbers:</p>
                                     </div>
                                     <div className="col-md-6">
-                                        <input type="tel" className="form-control"
-                                               placeholder="07x xxx xxx"
-                                               required
-                                               id={"inputPhoneNumber1"}
-                                               name={"inputPhoneNumber1"}
-                                               pattern="[07]{2}[0-9]{1} [0-9]{3} [0-9]{3}"/>
-                                        <p className="text-warning" id={"warningPhoneNumber1"}
-                                           style={{display: 'hidden', marginBottom: 0}}></p>
+                                        {phoneNumberTds}
                                     </div>
 
                                 </div>
-                                <div className="pull-right">
-                                    <i className="fa fa-plus-circle" style={{color: 'white'}}
-                                       onClick={handlePhoneNumberAdd}></i>
-                                </div>
-                                <br/>
                                 <div className="row justify-content-end rowPhoneNumber2">
 
                                 </div>
@@ -213,10 +172,7 @@ export const Register = (props) => {
                         </div>
                         <div className="card-footer">
                             <div className="d-flex justify-content-center links">
-                                Already have an account?<Link to={"/log-in"}>Log in</Link>
-                            </div>
-                            <div className="d-flex justify-content-center">
-                                <Link to={"/change-password"}>Forgot your password?</Link>
+                                Want to change password?<Link to={"/change-password"}>Change password</Link>
                             </div>
                         </div>
                     </div>
@@ -224,6 +180,6 @@ export const Register = (props) => {
             </div>
         )
     } else {
-        return <Redirect to={"/profile"}/>
+        return <Redirect to={"/log-in"}/>
     }
 };
