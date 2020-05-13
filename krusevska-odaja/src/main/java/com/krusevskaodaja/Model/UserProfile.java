@@ -1,9 +1,6 @@
 package com.krusevskaodaja.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -55,6 +52,11 @@ public class UserProfile {
     @Column
     private boolean termsChecked;
 
+    /**
+     * If the first front-end number is same with any database-users phone number, it returns 3 or 4
+     * On the front-end the counter that is returned is decreased by 2
+     * so we can detect correctly which phone number is used by any of the users
+     */
     public int checkPhoneNumbers(List<UserPhoneNumber> numbers) {
         for (UserPhoneNumber userPhoneNumber : this.phoneNumber) {
             int counter = 3;
