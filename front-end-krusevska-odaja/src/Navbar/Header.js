@@ -7,7 +7,8 @@ export const Header = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     return (
         <nav className="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-            <p className="navbar-brand"><img src={logo} alt="logo" width="80" height="60"/>Krusevska Odaja</p>
+            <img src={logo} alt="logo" width="80px" height="70px"/>
+            <span className="navbar-brand">Krusevska Odaja</span>
             <button className="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">

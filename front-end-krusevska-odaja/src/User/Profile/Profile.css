@@ -1,0 +1,15 @@
+.container-cart {
+    margin: auto;
+}
+
+.user-info {
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 90%;
+}
+
+.container-header{
+    border-radius: 5px;
+}

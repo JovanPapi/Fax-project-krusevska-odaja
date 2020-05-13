@@ -1,7 +1,6 @@
 import React from "react";
 import {Link, Redirect} from "react-router-dom";
 import $ from "jquery";
-import "../LogIn/LogIn.css";
 
 export const ChangePassword = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
