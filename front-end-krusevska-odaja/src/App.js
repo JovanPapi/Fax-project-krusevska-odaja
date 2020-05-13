@@ -11,6 +11,9 @@ import {Register} from "./User/Register/Register";
 import {ChangePassword} from "./User/ChangePassword/ChangePassword";
 import {Profile} from "./User/Profile/Profile";
 import {UpdateProfile} from "./User/UpdateProfile/UpdateProfile";
+import {Reservation} from "./Reservation/Reservation";
+import {ReservationService} from "./ServerRequests/ReservationService";
+import {MyReservation} from "./Reservation/MyReservation";
 
 class App extends React.Component {
     constructor(props) {
@@ -98,6 +101,32 @@ class App extends React.Component {
             })
         })
     };
+    userReservation = (userReservationData) => {
+        ReservationService.reserveATable(userReservationData).then(response => {
+            alert("Your reservation was successfully. Click OK to continue.");
+            sessionStorage.clear();
+            const user = response.data;
+            sessionStorage.setItem("currentUser", JSON.stringify(user));
+            this.setState({currentUser: user});
+            this.props.history.push("/my-reservation");
+        })
+    };
+    deleteReservation = (reservationId) => {
+        ReservationService.deleteReservation(reservationId).then(response => {
+            alert(response.data.message + ". Click OK to continue.");
+            sessionStorage.clear();
+            let user = this.state.currentUser;
+            user.reservation = null;
+            console.log(user);
+            sessionStorage.setItem("currentUser", JSON.stringify(user));
+            this.setState({currentUser: user});
+            this.props.history.push("/home");
+        }).catch(error => {
+            alert(error.response.data.message);
+            this.props.history.push("/my-reservation");
+        })
+    };
+
     // pravi nesto problem so route patekite
     // koga ke se pivika /profile/change-password se poremetuvaat scriptite koi se loadiraat od index.html
     render() {
@@ -130,6 +159,14 @@ class App extends React.Component {
 
                     <Route path={"/change-password"} render={() =>
                         <ChangePassword changePassword={this.userChangePassword}/>}>
+                    </Route>
+
+                    <Route path={"/reservation"} render={() =>
+                        <Reservation makeReservation={this.userReservation}/>}>
+                    </Route>
+
+                    <Route path={"/my-reservation"} render={() =>
+                        <MyReservation deleteReservation={this.deleteReservation}/>}>
                     </Route>
 
 
