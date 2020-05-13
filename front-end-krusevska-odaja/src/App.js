@@ -8,6 +8,7 @@ import {AboutUs} from "./AboutUs/AboutUs";
 import {UserService} from "./ServerRequests/UserService";
 import {ProductService} from "./ServerRequests/ProductService";
 import {Register} from "./User/Register/Register";
+import {ChangePassword} from "./User/ChangePassword/ChangePassword";
 
 class App extends React.Component {
     constructor(props) {
@@ -64,14 +65,30 @@ class App extends React.Component {
             })
         })
     };
-
+    userChangePassword = (changePasswordData) => {
+        UserService.changePassword(changePasswordData).then(response => {
+            alert(response.data.message);
+            sessionStorage.clear();
+            this.props.history.push("/log-in");
+        }).catch(error => {
+            let query = "?" + error.response.data.message;
+            sessionStorage.setItem("error", "true");
+            this.props.history.push({
+                pathname: "/change-password",
+                search: query
+            })
+        })
+    };
     userLogOff = (event) => {
         event.preventDefault();
         sessionStorage.clear();
         this.setState({currentUser: null});
         this.props.history.push("/log-in");
     };
-
+    // pravi nesto problem so route patekite
+    // koga ke se pivika /profile/change-password se poremetuvaat scriptite koi se loadiraat od index.html stranata
+    // najverojatno treba profile so site ostanati akcii sto se na /profile/... da se oddelat
+    // so toa sto na /profile da napiseme exact path
     render() {
         return (
             <div className="App">
@@ -91,6 +108,13 @@ class App extends React.Component {
                     <Route path={"/register"} render={() =>
                         <Register register={this.userRegister}/>}>
                     </Route>
+                    <Route path={"/change-password"} render={() =>
+                        <ChangePassword changePassword={this.userChangePassword}/>}>
+                    </Route>
+
+                    {/*<Route exact path={"/profile/change-password"} render={() =>*/}
+                    {/*    <Profile/>}>*/}
+                    {/*</Route>*/}
                     {/*<Route path="/ingredients/:ingredientId/edit" render={() =>*/}
                 </div>
             </div>

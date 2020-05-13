@@ -85,9 +85,9 @@ export const LogIn = (props) => {
                             <div className="d-flex justify-content-center links">
                                 Don't have an account?<Link to={"/register"}>Register</Link>
                             </div>
-                            <div className="d-flex justify-content-center">
-                                <Link to={"/change-password"}>Forgot your password?</Link>
-                            </div>
+                            {/*<div className="d-flex justify-content-center">*/}
+                            {/*    <Link to={"/profile/change-password"}>Forgot your password?</Link>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>

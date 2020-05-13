@@ -84,7 +84,7 @@ export const Register = (props) => {
         }
         if (!confirmPassword.match(password)) {
             $("#warningConfirmPassword").text("Confirm password doesnt match with the original!" +
-                " Please confirm password correctly").show();
+                " Please confirm above password correctly").show();
             return false;
         } else {
             $("#warningConfirmPassword").text("").hide();
@@ -216,7 +216,7 @@ export const Register = (props) => {
                                 Already have an account?<Link to={"/log-in"}>Log in</Link>
                             </div>
                             <div className="d-flex justify-content-center">
-                                <Link to={"/change-password"}>Forgot your password?</Link>
+                                <Link to={"/profile/change-password"}>Forgot your password?</Link>
                             </div>
                         </div>
                     </div>

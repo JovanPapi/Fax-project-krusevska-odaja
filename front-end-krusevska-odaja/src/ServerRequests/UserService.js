@@ -8,9 +8,9 @@ export const UserService = {
         return axios.post("/api/users/register", signUpData);
     },
     modifyProfile: (profileData) => {
-        return axios.post("/api/users/edit-profile", profileData);
+        return axios.patch("/api/users/edit-profile", profileData);
     },
     changePassword: (passwordData) => {
-        return axios.post("/api/users/change-password", passwordData);
+        return axios.patch("/api/users/change-password", passwordData);
     }
 };
