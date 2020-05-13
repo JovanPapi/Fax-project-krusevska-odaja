@@ -30,7 +30,7 @@ public class ReservationApiController {
         return new ResponseEntity<>(reservationService.createReservation(newReservation), HttpStatus.OK);
     }
 
-    @GetMapping("/delete/{reservationId}")
+    @DeleteMapping("/delete/{reservationId}")
     public ResponseEntity<?> deleteReservation(@PathVariable String reservationId) {
         if (!reservationService.deleteReservation(reservationId)) {
             return new ResponseEntity<>(new ApiResponse(false, "There was something wrong when trying" +

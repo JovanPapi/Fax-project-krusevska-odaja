@@ -53,7 +53,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         LocalTime time = LocalTime.parse(newReservation.getTime());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = LocalDate.parse(newReservation.getDate(), formatter);
 
         reservation.setDate(date);

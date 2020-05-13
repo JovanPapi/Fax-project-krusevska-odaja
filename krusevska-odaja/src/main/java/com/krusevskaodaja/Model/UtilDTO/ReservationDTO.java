@@ -11,8 +11,6 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class ReservationDTO {
     private String userId;
-    private String userName;
-    private String email;
     private String userNumber;
     private Integer tableNumber;
     private String date;
