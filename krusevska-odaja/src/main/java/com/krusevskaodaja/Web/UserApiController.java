@@ -40,7 +40,7 @@ public class UserApiController {
         }
         int check = 312;
         if ((check = userService.createProfile(newProfile)) != 1) {
-            return new ResponseEntity<>(new ApiResponse(false, "Phone number already in use!"+check),
+            return new ResponseEntity<>(new ApiResponse(false, "Phone number already in use!" + check),
                     HttpStatus.BAD_REQUEST);
         } else {
             return new ResponseEntity<>(new ApiResponse(true, "User registration successfully!"),
@@ -81,10 +81,12 @@ public class UserApiController {
 
     @PatchMapping("/change-password")
     public ResponseEntity<?> changePassword(@RequestBody PasswordChangeDTO passwordChange) throws SQLException {
-        if (!userRepository.getOne(passwordChange.getUserId()).getEmail().toLowerCase().equals(passwordChange.getEmail().toLowerCase())) {
+        if (!userRepository.findById(passwordChange.getUserId()).get().getEmail().toLowerCase()
+                .equals(passwordChange.getEmail().toLowerCase())) {
             return new ResponseEntity<>(new ApiResponse(false, "Your email is incorrect! Please try again."),
                     HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(userService.changePassword(passwordChange), HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse(userService.changePassword(passwordChange),
+                "You successfully changed you password. Log in again to continue."), HttpStatus.OK);
     }
 }
