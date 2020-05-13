@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import {Header} from "./Navbar/Header";
 import {LogIn} from "./User/LogIn/LogIn";
 import {HomeEvents} from "./Home/HomeEvents";
 import {AboutUs} from "./AboutUs/AboutUs";
 import {UserService} from "./ServerRequests/UserService";
 import {ProductService} from "./ServerRequests/ProductService";
+import {Register} from "./User/Register/Register";
 
 class App extends React.Component {
     constructor(props) {
@@ -31,13 +32,35 @@ class App extends React.Component {
             this.setState({currentUser: response.data});
             this.props.history.push("/profile");
         }).catch(error => {
-            console.log(error.response.data);
             let query = "?" + error.response.data.message;
             sessionStorage.setItem("error", "true");
             this.props.history.push({
                 pathname: '/log-in',
                 search: query
                 // state: { detail: response.data }
+            })
+        })
+    };
+    userRegister = (registerData) => {
+        UserService.registerUser(registerData).then(response => {
+            alert(response.data.message + " Click OK to proceed.");
+            this.props.history.push("/log-in");
+        }).catch(error => {
+            let fullName = registerData.name;
+            let username = registerData.username;
+            let email = registerData.email;
+            let firstNumber = registerData.phoneNumber[0];
+            let secondNumber = "";
+            if (registerData.phoneNumber[1] !== undefined) {
+                let secondNumber = "&phoneNumber2=" + registerData.phoneNumber[1];
+            }
+            // + "&fullName=" + fullName + "&username=" + username
+            // + "&email=" + email + "&phoneNumber1=" + firstNumber + secondNumber;
+            let query = "?" + error.response.data.message;
+            sessionStorage.setItem("error", "true");
+            this.props.history.push({
+                pathname: '/register',
+                search: query
             })
         })
     };
@@ -64,6 +87,9 @@ class App extends React.Component {
                     </Route>
                     <Route path={"/about-us"} render={() =>
                         <AboutUs/>}>
+                    </Route>
+                    <Route path={"/register"} render={() =>
+                        <Register register={this.userRegister}/>}>
                     </Route>
                     {/*<Route path="/ingredients/:ingredientId/edit" render={() =>*/}
                 </div>

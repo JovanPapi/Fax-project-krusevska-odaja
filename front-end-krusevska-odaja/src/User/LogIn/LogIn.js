@@ -79,22 +79,15 @@ export const LogIn = (props) => {
                                 <div className="form-group">
                                     <input type="submit" value="Login" className="btn login_btn"/>
                                 </div>
-
-                                <div className="d-flex justify-content-center links">
-                                    Don't have an account?<Link to={"/register"}>Register</Link>
-                                </div>
-                                <div className="d-flex justify-content-center">
-                                    <Link to={"/change-password"}>Forgot your password?</Link>
-                                </div>
                             </form>
-                            {/*<div className="card-footer">*/}
-                            {/*    <div className="d-flex justify-content-center links">*/}
-                            {/*        Don't have an account?<Link to={"/register"}>Register</Link>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="d-flex justify-content-center">*/}
-                            {/*        <Link to={"/change-password"}>Forgot your password?</Link>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                        </div>
+                        <div className="card-footer">
+                            <div className="d-flex justify-content-center links">
+                                Don't have an account?<Link to={"/register"}>Register</Link>
+                            </div>
+                            <div className="d-flex justify-content-center">
+                                <Link to={"/change-password"}>Forgot your password?</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,5 +96,4 @@ export const LogIn = (props) => {
     } else {
         return <Redirect to={"/profile"}/>
     }
-
 };
