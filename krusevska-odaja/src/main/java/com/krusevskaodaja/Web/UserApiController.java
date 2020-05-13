@@ -72,11 +72,13 @@ public class UserApiController {
 
     @PatchMapping("/edit-profile")
     public ResponseEntity<?> editUser(@RequestBody EditProfileDTO updateProfile) {
-        if (!userRepository.getOne(updateProfile.getId()).getEmail().toLowerCase().equals(updateProfile.getEmail().toLowerCase())) {
+        if (!userRepository.findById(updateProfile.getId()).get().getEmail().toLowerCase()
+                .equals(updateProfile.getEmail().toLowerCase())) {
             return new ResponseEntity<>(new ApiResponse(false, "Your email is incorrect! Please try again."),
                     HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(userService.updateProfile(updateProfile), HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse(userService.updateProfile(updateProfile),
+                "You successfully updated your profile."), HttpStatus.OK);
     }
 
     @PatchMapping("/change-password")

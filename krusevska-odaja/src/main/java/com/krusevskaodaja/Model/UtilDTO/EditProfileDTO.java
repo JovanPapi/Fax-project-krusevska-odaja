@@ -14,7 +14,6 @@ public class EditProfileDTO {
     private String name;
     private String username;
     private String email;
-    private String password;
     private List<String> phoneNumber;
     private boolean termsChecked;
 }
