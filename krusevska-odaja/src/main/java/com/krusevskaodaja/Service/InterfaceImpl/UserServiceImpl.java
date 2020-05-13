@@ -55,8 +55,7 @@ public class UserServiceImpl implements UserService {
         }
 
         UserProfile user = new UserProfile(UUID.randomUUID().toString(), newProfile.getName(), newProfile.getUsername(),
-                newProfile.getEmail(), newProfile.getPassword(), userPhoneNumbers, null,
-                "User", false);
+                newProfile.getEmail(), newProfile.getPassword(), userPhoneNumbers, null, "User", false);
 
         userPhoneNumbers.forEach(userPhoneNumber -> userPhoneNumber.setUser(user));
 
