@@ -65,13 +65,13 @@ public class ProductApiController {
                 "successfully updated the product. Click OK to proceed."), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete-product/{id}")
-    public ResponseEntity<?> deleteProduct(@PathVariable String id) {
-        if (!productRepository.existsById(id)) {
+    @DeleteMapping("/delete/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable String productId) {
+        if (!productRepository.existsById(productId)) {
             return new ResponseEntity<>(new ApiResponse(false, "The product you want to delete " +
                     "is no longer available or it's already deleted."), HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new ApiResponse(productService.deleteProduct(id), "The product has been " +
+        return new ResponseEntity<>(new ApiResponse(productService.deleteProduct(productId), "The product has been " +
                 "successfully deleted. Click OK to proceed"), HttpStatus.OK);
 
     }

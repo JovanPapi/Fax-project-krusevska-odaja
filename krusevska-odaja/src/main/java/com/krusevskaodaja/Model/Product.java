@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product implements Comparable<Product>{
+public class Product implements Comparable<Product> {
 
     @Id
     private String id;
@@ -32,8 +32,6 @@ public class Product implements Comparable<Product>{
     @Column
     @NotNull
     private String price;
-
-
 
     @Column
     @NotNull
