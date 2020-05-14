@@ -14,20 +14,32 @@ import {UpdateProfile} from "./User/UpdateProfile/UpdateProfile";
 import {Reservation} from "./Reservation/Reservation";
 import {ReservationService} from "./ServerRequests/ReservationService";
 import {MyReservation} from "./Reservation/MyReservation";
+import {Salads} from "./RestaurantMenu/Elements/Salads";
+import {ColdAndHotAppetizers} from "./RestaurantMenu/Elements/ColdAndHotAppetizers";
+import {Grill} from "./RestaurantMenu/Elements/Grill";
+import {GarnishAndExtras} from "./RestaurantMenu/Elements/GarnishAndExtras";
+import {DessertsAndSnacks} from "./RestaurantMenu/Elements/DessertsAndSnacks";
+import {Drinks} from "./RestaurantMenu/Elements/Drinks";
+import {DisheshToOrder} from "./RestaurantMenu/Elements/DishesToOrder";
+import {SpecialitiesOfTheHouse} from "./RestaurantMenu/Elements/SpecialitiesOfTheHouse";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             currentUser: null,
-            products: null,
-            ingredients: null
+            products: [],
+            suggestedProducts: [],
+            ingredients: []
         }
     }
 
     componentDidMount() {
         ProductService.fetchAllProducts().then(response => {
-            this.setState({products: response});
+            this.setState({products: response.data});
+        });
+        ProductService.fetchAllSuggestedProducts().then(response => {
+            this.setState({suggestedProducts: response.data})
         })
     }
 
@@ -126,6 +138,65 @@ class App extends React.Component {
             this.props.history.push("/my-reservation");
         })
     };
+    splitProductByType = (splitType, elementImages) => {
+        // eslint-disable-next-line array-callback-return
+        let imageCounter = 0;
+        return this.state.products.map((product, key) => {
+            if (product.type === splitType) {
+                let productIngredients = "";
+                let productTranslated = product.nameTranslated.toUpperCase() + ": ";
+                let productIngredientsSize = Object.keys(product.ingredients).length;
+                if (productIngredientsSize > 0) {
+                    for (let i = 0; i < productIngredientsSize; i++) {
+                        if (i === productIngredientsSize - 1) {
+                            productIngredients += product.ingredients[i].name.toLowerCase();
+                            productTranslated += product.ingredients[i].nameTranslate;
+                        } else {
+                            productIngredients += product.ingredients[i].name.toLowerCase() + ", ";
+                            productTranslated += product.ingredients[i].nameTranslate + ", ";
+                        }
+                    }
+                }
+                return (
+                    <li key={key}>
+                        <img alt="Cannot load image"
+                             src={elementImages[imageCounter++]}/>
+                        <div className="info">
+                            <div className="row">
+                                <div className="col-md-7">
+                                    <h5 className="title mb-0">{product.name}<span
+                                        style={{fontSize: 15,paddingLeft:10}}>{product.description}</span></h5>
+                                </div>
+                                <div className="col-md-5 pull-right">
+                                    <p className="desc mb-0">{product.valuta}&nbsp;&nbsp;{product.price}</p>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <p className="desc mb-0"><b>{productIngredients}</b></p>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <p className="desc" style={{color: 'darkred'}}>{productTranslated}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="social">
+                            <ul>
+                                <li className="facebook" style={{width: 33}}><a href="#facebook"><span
+                                    className="fa fa-facebook"></span></a></li>
+                                <li className="twitter" style={{width: 34}}><a href="#twitter"><span
+                                    className="fa fa-twitter"></span></a></li>
+                                <li className="google-plus" style={{width: 33}}><a href="#google-plus"><span
+                                    className="fa fa-google-plus"></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                )
+            }
+        });
+    };
 
     // pravi nesto problem so route patekite
     // koga ke se pivika /profile/change-password se poremetuvaat scriptite koi se loadiraat od index.html
@@ -169,7 +240,37 @@ class App extends React.Component {
                         <MyReservation deleteReservation={this.deleteReservation}/>}>
                     </Route>
 
+                    <Route path={"/salads"} render={() =>
+                        <Salads splitProducts={this.splitProductByType}/>}>
+                    </Route>
 
+                    <Route path={"/cold-and-hot-appetizers"} render={() =>
+                        <ColdAndHotAppetizers splitProducts={this.splitProductByType}/>}>
+                    </Route>
+
+                    <Route path={"/grill"} render={() =>
+                        <Grill splitProducts={this.splitProductByType}/>}>
+                    </Route>
+
+                    <Route path={"/garnish-and-extras"} render={() =>
+                        <GarnishAndExtras splitProducts={this.splitProductByType}/>}>
+                    </Route>
+
+                    <Route path={"/desserts-and-snacks"} render={() =>
+                        <DessertsAndSnacks splitProducts={this.splitProductByType}/>}>
+                    </Route>
+
+                    <Route path={"/drinks"} render={() =>
+                        <Drinks splitProducts={this.splitProductByType}/>}>
+                    </Route>
+
+                    <Route path={"/dishes-to-order"} render={() =>
+                        <DisheshToOrder splitProducts={this.splitProductByType}/>}>
+                    </Route>
+
+                    <Route path={"/specialities-of-the-house"} render={() =>
+                        <SpecialitiesOfTheHouse splitProducts={this.splitProductByType}/>}>
+                    </Route>
                     {/*<Route path="/ingredients/:ingredientId/edit" render={() =>*/}
                 </div>
             </div>

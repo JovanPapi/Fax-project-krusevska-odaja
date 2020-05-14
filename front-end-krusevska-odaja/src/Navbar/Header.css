@@ -112,3 +112,11 @@
         top: -7px;
     }
 }
+
+.dropdown-menu .dropdown-item:hover{
+    background-color: gray;
+    color: orange;
+}
+.dropdown-menu .dropdown-item{
+    color: white;
+}
