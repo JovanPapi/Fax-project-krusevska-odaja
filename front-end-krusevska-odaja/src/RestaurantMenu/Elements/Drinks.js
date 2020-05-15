@@ -75,6 +75,7 @@ import pelisterkaSparklingSmall from "../ElementImages/DrinkImages/SoftDrinks/pe
 import pelisterkaStillSmall from "../ElementImages/DrinkImages/SoftDrinks/pelisterskaStillSmall.jpg";
 import pelisterkaMiddle from "../ElementImages/DrinkImages/SoftDrinks/pelisterkaMiddle.jpg";
 import pelisterkaSparklingLarge from "../ElementImages/DrinkImages/SoftDrinks/pelisterkaLarge.jpg";
+import {Link} from "react-router-dom";
 
 export class Drinks extends React.Component {
     constructor(props) {
@@ -166,25 +167,25 @@ export class Drinks extends React.Component {
         let aperitivesImages = [baileys, vodka, cognac, martini, mastika, pelinkovac, rum, smirnoff, stomaklija
             , brandyTraditionalTikvesWhite, brandyTraditionalTikves, brandyTraditionalTikvesVS
             , ouzoPhilippos, ouzoPlomari, stock, jagdTraum, jagerMaister, jameson, jimBeam, gin, johnyWalkerRedLabel];
-        const aperitives = this.props.splitProducts("APERITIVES", aperitivesImages);
+        const aperitives = this.props.splitProducts("APERITIVES", aperitivesImages,"drinks");
 
         let specialWinesImages = [aleksandriaCuveeWhite, aleksandriaCuveeRed, barovoWhiteAndRed
             , whiteWatherWhineWhiteAndRed, cabernetSauvignon, rkacateli, sauvignonBlanc];
-        const specialWines = this.props.splitProducts("SPECIALWINE", specialWinesImages);
+        const specialWines = this.props.splitProducts("SPECIALWINE", specialWinesImages,"drinks");
 
         let winesImages = [aleksandriaWhiteLarge, aleksandriaRedLarge, aleksandriaWhiteSmall, aleksandriaRedSmall
             , bunar, vitach, vranec, kavadarka, rozeLarge, rozeMiddle, smederevka, tgaLarge, tgaSmall
             , temjanikaLarge, temjanikaSmall, traminecLarge, traminecSmall, rozeLarge, rozeMiddle, glassOfWine];
-        const wines = this.props.splitProducts("WINE", winesImages);
+        const wines = this.props.splitProducts("WINE", winesImages,"drinks");
 
         let beerImages = [becks, kamenitza, skopsko, staropramen, stellaArtois, jelen];
         const beers = this.props.splitProducts("BEER", beerImages);
 
         let coffeImages = [espresso, cappuchino, makedonsko, macchiato, nescafe];
-        const coffee = this.props.splitProducts("COFFEE", coffeImages);
+        const coffee = this.props.splitProducts("COFFEE", coffeImages,"drinks");
 
         let teaImages = [teaa];
-        const tea = this.props.splitProducts("TEA", teaImages);
+        const tea = this.props.splitProducts("TEA", teaImages,"drinks");
 
         let softDrinkImages = [juice, cocaCola, pelisterkaSparklingSmall, pelisterkaStillSmall
             , pelisterkaMiddle, pelisterkaSparklingLarge, sprite, tonic, fanta, schweppes];
@@ -194,6 +195,14 @@ export class Drinks extends React.Component {
                 <h2 style={{color: 'white'}}>View all your desired drinks!</h2>
                 <div className="accordion" id="accordion">
                     <div className="panel">
+                        <div className="row justify-content-center">
+                            <div className="col-md-3">
+                                <Link to={"/create-product"} className="btn btn-primary mb-3">Create product</Link>
+                            </div><br/>
+                            <div className="col-md-3">
+                                <Link to={"/my-cart"} className="btn btn-primary" style={{width:131}}>View my cart</Link>
+                            </div>
+                        </div>
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>
                             <h4 className="expand" data-toggle="collapse" data-parent="#accoordion"
                                 href="#collapse1">

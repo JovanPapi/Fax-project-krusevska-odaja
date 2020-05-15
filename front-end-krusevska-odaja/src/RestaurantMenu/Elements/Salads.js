@@ -11,10 +11,11 @@ import tarator from "../ElementImages/SaladImages/tarator.jpg";
 import ovcharska from "../ElementImages/SaladImages/ovcharska.jpg";
 import ovchavina from "../ElementImages/SaladImages/ovchavina.jpg";
 import turshija from "../ElementImages/SaladImages/turshija.jpg";
+import {Link} from "react-router-dom";
 
 export const Salads = (props) => {
     let saladImages = [egejska, macedonian, mimoza, ovchavina, ovcharska, season, tarator, turshija, shopska];
-    const salads = props.splitProducts("SALAD", saladImages);
+    const salads = props.splitProducts("SALAD", saladImages,"salads");
     return (
         <div className="container">
             <br/>
@@ -30,6 +31,15 @@ export const Salads = (props) => {
                 </div>
             </div>
             <br/>
+            <br/>
+            <div className="row justify-content-center">
+                <div className="col-md-3">
+                    <Link to={"/create-product"} className="btn btn-primary mb-3">Create product</Link>
+                </div><br/>
+                <div className="col-md-3">
+                    <Link to={"/my-cart"} className="btn btn-primary" style={{width:131}}>View my cart</Link>
+                </div>
+            </div>
             <br/>
             <div className="row justify-content-center">
                 <div className="[ col-xs-12 col-sm-offset-2 col-sm-9 ]">

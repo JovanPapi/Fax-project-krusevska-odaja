@@ -138,11 +138,31 @@ class App extends React.Component {
             this.props.history.push("/my-reservation");
         })
     };
-    splitProductByType = (splitType, elementImages) => {
+    deleteProduct = (productId, currentMenuSection) => {
+        ProductService.deleteProduct(productId).then(response => {
+            alert(response.data.message);
+            this.setState(prevState => {
+                const newProductList = prevState.products.filter(product => {
+                    if (product.id !== productId) {
+                        return product;
+                    }
+                });
+                return {
+                    products: newProductList
+                }
+            });
+            this.props.history.push("/" + currentMenuSection);
+        }).catch(error => {
+            alert(error.response.data.message);
+            this.props.history.push("/" + currentMenuSection);
+        })
+    };
+    splitProductByType = (splitType, elementImages, currentMenuSection) => {
         // eslint-disable-next-line array-callback-return
         let imageCounter = 0;
         return this.state.products.map((product, key) => {
             if (product.type === splitType) {
+                let productId = product.id;
                 let productIngredients = "";
                 let productTranslated = product.nameTranslated.toUpperCase() + ": ";
                 let productIngredientsSize = Object.keys(product.ingredients).length;
@@ -165,7 +185,7 @@ class App extends React.Component {
                             <div className="row">
                                 <div className="col-md-7">
                                     <h5 className="title mb-0">{product.name}<span
-                                        style={{fontSize: 15,paddingLeft:10}}>{product.description}</span></h5>
+                                        style={{fontSize: 15, paddingLeft: 10}}>{product.description}</span></h5>
                                 </div>
                                 <div className="col-md-5 pull-right">
                                     <p className="desc mb-0">{product.valuta}&nbsp;&nbsp;{product.price}</p>
@@ -184,12 +204,14 @@ class App extends React.Component {
                         </div>
                         <div className="social">
                             <ul>
-                                <li className="facebook" style={{width: 33}}><a href="#facebook"><span
-                                    className="fa fa-facebook"></span></a></li>
-                                <li className="twitter" style={{width: 34}}><a href="#twitter"><span
-                                    className="fa fa-twitter"></span></a></li>
-                                <li className="google-plus" style={{width: 33}}><a href="#google-plus"><span
-                                    className="fa fa-google-plus"></span></a></li>
+                                <li className="facebook" style={{width: 33}}><a href="#facebook"><i
+                                    className="fa fa-edit"></i></a></li>
+                                <li className="twitter" style={{width: 34}}><a href="#twitter"><i
+                                    className="fa fa-plus-circle"></i></a></li>
+                                <li className="google-plus" style={{width: 33}}
+                                    onClick={() => this.deleteProduct(productId, currentMenuSection)}>
+                                    <a href="#google-plus"><i
+                                        className="fa fa-remove"></i></a></li>
                             </ul>
                         </div>
                     </li>
