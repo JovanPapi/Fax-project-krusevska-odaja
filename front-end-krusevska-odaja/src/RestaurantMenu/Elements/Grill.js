@@ -30,7 +30,7 @@ export const Grill = (props) => {
     let grillImages = [wienerSchnitzel, ramsteak, kebab, porkChop, sausageKrusevski, burgerLoveckaSmall, burgerLoveckaLarge
         , makedonskaSmall, makedonskaLarge, naturEscalope, chickenKabobs, chickenSteak, chickenSteakInMushroomSauce
         , wrappedChickenMeat, burger, porkRib, porkKabobs, wrappedPorkMeat, fritters, mincedMeatSteak];
-    const grill = props.splitProducts("GRILL", grillImages,"grill");
+    const grill = props.splitProducts("GRILL", grillImages, "grill");
     return (
         <div className="container">
             <br/>
@@ -46,16 +46,15 @@ export const Grill = (props) => {
                 </div>
             </div>
             <br/>
-            <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">
                     <Link to={"/create-product"} className="btn btn-primary mb-3">Create product</Link>
-                </div><br/>
+                </div>
+                <br/>
                 <div className="col-md-3">
-                    <Link to={"/my-cart"} className="btn btn-primary" style={{width:131}}>View my cart</Link>
+                    <Link to={"/my-cart"} className="btn btn-primary mb-3" style={{width: 131}}>View my cart</Link>
                 </div>
             </div>
-            <br/>
             <div className="row justify-content-center">
                 <div className="[ col-xs-12 col-sm-offset-2 col-sm-9 ]">
                     <ul className="event-list">

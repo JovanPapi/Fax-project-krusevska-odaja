@@ -24,7 +24,7 @@ import {Link} from "react-router-dom";
 export const ColdAndHotAppetizers = (props) => {
     let coldAndHotAppetizersImages = [hardCheese, boardOdaja, yellowCheese, scrambledEggs, goatCheese, pie, olives, sheepCheese
         , omlette, grilledMushrooms, chickenFingers, pieWithLeek, pieWithSpinach, pituliciWithGarlic, breadedYellowCheese];
-    const coldAndHotAppetizers = props.splitProducts("APPETIZERS", coldAndHotAppetizersImages,"cold-and-hot-appetizers");
+    const coldAndHotAppetizers = props.splitProducts("APPETIZERS", coldAndHotAppetizersImages, "cold-and-hot-appetizers");
     return (
         <div className="container">
             <br/>
@@ -40,16 +40,15 @@ export const ColdAndHotAppetizers = (props) => {
                 </div>
             </div>
             <br/>
-            <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">
                     <Link to={"/create-product"} className="btn btn-primary mb-3">Create product</Link>
-                </div><br/>
+                </div>
+                <br/>
                 <div className="col-md-3">
-                    <Link to={"/my-cart"} className="btn btn-primary" style={{width:131}}>View my cart</Link>
+                    <Link to={"/my-cart"} className="btn btn-primary mb-3" style={{width: 131}}>View my cart</Link>
                 </div>
             </div>
-            <br/>
             <div className="row justify-content-center">
                 <div className="[ col-xs-12 col-sm-offset-2 col-sm-9 ]">
                     <ul className="event-list">

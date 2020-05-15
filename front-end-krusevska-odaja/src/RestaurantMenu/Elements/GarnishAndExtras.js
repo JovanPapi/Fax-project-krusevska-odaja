@@ -14,33 +14,32 @@ import {Link} from "react-router-dom";
 
 
 export const GarnishAndExtras = (props) => {
-    let garnishAndExtrasImages = [garnish,hotPepper,roastBread,roastBreadWithCheese,breadPiece,fries,friesWithCheese];
-    const garnishAndExtras = props.splitProducts("GARNISHANDEXTRAS", garnishAndExtrasImages,"garnish-and-extras");
+    let garnishAndExtrasImages = [garnish, hotPepper, roastBread, roastBreadWithCheese, breadPiece, fries, friesWithCheese];
+    const garnishAndExtras = props.splitProducts("GARNISHANDEXTRAS", garnishAndExtrasImages, "garnish-and-extras");
     return (
         <div className="container">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">
-                    <img src={logoMenu}  style={{borderRadius:90}} alt="Element logo" width="170px" height="170px"/>
+                    <img src={logoMenu} style={{borderRadius: 90}} alt="Element logo" width="170px" height="170px"/>
                 </div>
                 <div className="col-xl-4">
-                    <h1 style={{color:'white'}}>Гарнир и екстра / Garnish and extras</h1>
+                    <h1 style={{color: 'white'}}>Гарнир и екстра / Garnish and extras</h1>
                 </div>
                 <div className="col-md-3">
-                    <img src={logoMenu}  style={{borderRadius:90}} alt="Element logo" width="170px" height="170px"/>
+                    <img src={logoMenu} style={{borderRadius: 90}} alt="Element logo" width="170px" height="170px"/>
                 </div>
             </div>
-            <br/>
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">
                     <Link to={"/create-product"} className="btn btn-primary mb-3">Create product</Link>
-                </div><br/>
+                </div>
+                <br/>
                 <div className="col-md-3">
-                    <Link to={"/my-cart"} className="btn btn-primary" style={{width:131}}>View my cart</Link>
+                    <Link to={"/my-cart"} className="btn btn-primary mb-3" style={{width: 131}}>View my cart</Link>
                 </div>
             </div>
-            <br/>
             <div className="row justify-content-center">
                 <div className="[ col-xs-12 col-sm-offset-2 col-sm-9 ]">
                     <ul className="event-list">

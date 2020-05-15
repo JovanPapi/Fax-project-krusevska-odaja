@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
+// bitno e tuka najprvo da se importnat site potrebni raboti
+// kako bootstrap, css, js i slicno.
+import "bootstrap/dist/js/bootstrap.min";
+import "font-awesome/css/font-awesome.min.css";
 
 ReactDOM.render(
     <React.StrictMode>

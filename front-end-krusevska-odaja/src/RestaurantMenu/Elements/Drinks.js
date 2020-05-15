@@ -204,7 +204,8 @@ export class Drinks extends React.Component {
                             </div>
                         </div>
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>
-                            <h4 className="expand" data-toggle="collapse" data-parent="#accoordion"
+                            {/*data-toggle="collapse"*/}
+                            <h4 className="expand" data-parent="#accoordion"
                                 href="#collapse1">
                                 <a href="#" id="first-collapse">Аперативи / Aperitives</a>
                             </h4>
@@ -223,7 +224,7 @@ export class Drinks extends React.Component {
                     </div>
                     <div className="panel">
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>
-                            <h4 className="expand" data-toggle="collapse" data-parent="#accoordion"
+                            <h4 className="expand" data-parent="#accoordion"
                                 href="#collapse2">
                                 <a href="#" id="second-collapse">Специјални вина / Special Wines</a>
                             </h4>
@@ -242,7 +243,7 @@ export class Drinks extends React.Component {
                     </div>
                     <div className="panel">
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>
-                            <h4 className="expand" data-toggle="collapse" data-parent="#accoordion"
+                            <h4 className="expand" data-parent="#accoordion"
                                 href="#collapse3">
                                 <a href="#" id="third-collapse">Вина / Wines</a>
                             </h4>
@@ -261,7 +262,7 @@ export class Drinks extends React.Component {
                     </div>
                     <div className="panel">
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>
-                            <h4 className="expand" data-toggle="collapse" data-parent="#accoordion"
+                            <h4 className="expand" data-parent="#accoordion"
                                 href="#collapse4">
                                 <a href="#" id="fourth-collapse">Пива / Beers</a>
                             </h4>
@@ -280,7 +281,7 @@ export class Drinks extends React.Component {
                     </div>
                     <div className="panel">
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>
-                            <h4 className="expand" data-toggle="collapse" data-parent="#accoordion"
+                            <h4 className="expand" data-parent="#accoordion"
                                 href="#collapse5">
                                 <a href="#" id="fifth-collapse">Кафе и чај / Coffee and tea</a>
                             </h4>
@@ -300,7 +301,7 @@ export class Drinks extends React.Component {
                     </div>
                     <div className="panel">
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>
-                            <h4 className="expand" data-toggle="collapse" data-parent="#accoordion"
+                            <h4 className="expand" data-parent="#accoordion"
                                 href="#collapse6">
                                 <a href="#" id="sixth-collapse">Без алкохолни пијалоци / Soft drinks</a>
                             </h4>

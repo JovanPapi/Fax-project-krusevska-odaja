@@ -13,10 +13,10 @@ import hazelnut from "../ElementImages/DessertsAndSnacksImages/hazelnut.jpg";
 import {Link} from "react-router-dom";
 
 export const DessertsAndSnacks = (props) => {
-    let dessertsImages = [muffin,pancake,iceCream];
-    let snacksImages = [almond,peanuts,hazelnut,pistachio];
-    const desserts = props.splitProducts("DESSERTS", dessertsImages,"desserts-and-snacks");
-    const snacks = props.splitProducts("SNACKS", snacksImages,"desserts-and-snacks");
+    let dessertsImages = [muffin, pancake, iceCream];
+    let snacksImages = [almond, peanuts, hazelnut, pistachio];
+    const desserts = props.splitProducts("DESSERTS", dessertsImages, "desserts-and-snacks");
+    const snacks = props.splitProducts("SNACKS", snacksImages, "desserts-and-snacks");
     return (
         <div className="container">
             <br/>
@@ -32,16 +32,15 @@ export const DessertsAndSnacks = (props) => {
                 </div>
             </div>
             <br/>
-            <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">
                     <Link to={"/create-product"} className="btn btn-primary mb-3">Create product</Link>
-                </div><br/>
+                </div>
+                <br/>
                 <div className="col-md-3">
-                    <Link to={"/my-cart"} className="btn btn-primary" style={{width:131}}>View my cart</Link>
+                    <Link to={"/my-cart"} className="btn btn-primary mb-3" style={{width: 131}}>View my cart</Link>
                 </div>
             </div>
-            <br/>
             <div className="row justify-content-center">
                 <div className="[ col-xs-12 col-sm-offset-2 col-sm-9 ]">
                     <ul className="event-list">

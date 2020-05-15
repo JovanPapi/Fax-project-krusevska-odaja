@@ -7,7 +7,6 @@ export const Header = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     return (
         <nav className="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-
             <span className="navbar-brand pt-0 pb-0">
                 <img src={logo} alt="logo" width="80px" height="70px"/>
                 Krusevska Odaja
@@ -37,23 +36,23 @@ export const Header = (props) => {
                             Menu
                         </Link>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor:'gray'}}>
-                            <Link to={"/salads"} className="dropdown-item">Салати /
+                            <Link to={"/menu/salads"} className="dropdown-item">Салати /
                                 Salads</Link>
-                            <Link to={"/cold-and-hot-appetizers"} className="dropdown-item">Ладни и топли
+                            <Link to={"/menu/cold-and-hot-appetizers"} className="dropdown-item">Ладни и топли
                                 предјадења / Cold and hot appetizers</Link>
-                            <Link to={"/grill"} className="dropdown-item">Скара / Grill</Link>
-                            <Link to={"/garnish-and-extras"} className="dropdown-item">Гарнир и додатоци / Garnish and
+                            <Link to={"/menu/grill"} className="dropdown-item">Скара / Grill</Link>
+                            <Link to={"/menu/garnish-and-extras"} className="dropdown-item">Гарнир и додатоци / Garnish and
                                 extras</Link>
-                            <Link to={"/desserts-and-snacks"} className="dropdown-item">Десерти и апетисани / Desserts
+                            <Link to={"/menu/desserts-and-snacks"} className="dropdown-item">Десерти и апетисани / Desserts
                                 and snacks</Link>
-                            <Link to={"/drinks"} className="dropdown-item">Пијалоци / Drinks</Link>
+                            <Link to={"/menu/drinks"} className="dropdown-item">Пијалоци / Drinks</Link>
                             <div className="dropdown-divider"></div>
-                            <Link to={"/dishes-to-order"} className="dropdown-item">Јадења по нарачка / Dishes to
+                            <Link to={"/menu/dishes-to-order"} className="dropdown-item">Јадења по нарачка / Dishes to
                                 order</Link>
-                            <Link to={"/specialities-of-the-house"} className="dropdown-item">Специјалитети на
+                            <Link to={"/menu/specialities-of-the-house"} className="dropdown-item">Специјалитети на
                                 куќата / Specialities of the house</Link>
                             <div className="dropdown-divider"></div>
-                            <Link to={"/suggested-products"} className="dropdown-item">Предложени продукти / Suggested
+                            <Link to={"/menu/suggested-products"} className="dropdown-item">Предложени продукти / Suggested
                                 products</Link>
                         </div>
                     </li>

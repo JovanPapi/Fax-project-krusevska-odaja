@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, withRouter} from "react-router-dom";
+import {Link, Route, withRouter} from "react-router-dom";
 import {Header} from "./Navbar/Header";
 import {LogIn} from "./User/LogIn/LogIn";
 import {HomeEvents} from "./Home/HomeEvents";
@@ -22,6 +22,7 @@ import {DessertsAndSnacks} from "./RestaurantMenu/Elements/DessertsAndSnacks";
 import {Drinks} from "./RestaurantMenu/Elements/Drinks";
 import {DisheshToOrder} from "./RestaurantMenu/Elements/DishesToOrder";
 import {SpecialitiesOfTheHouse} from "./RestaurantMenu/Elements/SpecialitiesOfTheHouse";
+import {Edit} from "./Product/Edit";
 
 class App extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class App extends React.Component {
             currentUser: null,
             products: [],
             suggestedProducts: [],
-            ingredients: []
+            ingredients: [],
         }
     }
 
@@ -154,12 +155,18 @@ class App extends React.Component {
             this.props.history.push("/" + currentMenuSection);
         }).catch(error => {
             alert(error.response.data.message);
-            this.props.history.push("/" + currentMenuSection);
+            this.props.history.push("/menu/" + currentMenuSection);
         })
+    };
+
+    //TODO next to implement is update product, now that we fixed with loading scripts and stylesheets.
+    updateProduct = (productId, currentMenuSection) => {
+
     };
     splitProductByType = (splitType, elementImages, currentMenuSection) => {
         // eslint-disable-next-line array-callback-return
         let imageCounter = 0;
+        let productCounter = 0;
         return this.state.products.map((product, key) => {
             if (product.type === splitType) {
                 let productId = product.id;
@@ -204,14 +211,17 @@ class App extends React.Component {
                         </div>
                         <div className="social">
                             <ul>
-                                <li className="facebook" style={{width: 33}}><a href="#facebook"><i
-                                    className="fa fa-edit"></i></a></li>
-                                <li className="twitter" style={{width: 34}}><a href="#twitter"><i
-                                    className="fa fa-plus-circle"></i></a></li>
+                                <li className="facebook" style={{width: 33}}><a
+                                    href=""><i
+                                    className="fa fa-edit"> </i></a></li>
+
+                                <li className="twitter" style={{width: 34}}><a href=""><i
+                                    className="fa fa-plus-circle"> </i></a></li>
+
                                 <li className="google-plus" style={{width: 33}}
                                     onClick={() => this.deleteProduct(productId, currentMenuSection)}>
-                                    <a href="#google-plus"><i
-                                        className="fa fa-remove"></i></a></li>
+                                    <a href=""><i
+                                        className="fa fa-remove"> </i></a></li>
                             </ul>
                         </div>
                     </li>
@@ -220,8 +230,6 @@ class App extends React.Component {
         });
     };
 
-    // pravi nesto problem so route patekite
-    // koga ke se pivika /profile/change-password se poremetuvaat scriptite koi se loadiraat od index.html
     render() {
         return (
             <div className="App">
@@ -262,36 +270,40 @@ class App extends React.Component {
                         <MyReservation deleteReservation={this.deleteReservation}/>}>
                     </Route>
 
-                    <Route path={"/salads"} render={() =>
+                    <Route path={"/menu/salads"} render={() =>
                         <Salads splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={"/cold-and-hot-appetizers"} render={() =>
+                    <Route path={"/menu/cold-and-hot-appetizers"} render={() =>
                         <ColdAndHotAppetizers splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={"/grill"} render={() =>
+                    <Route path={"/menu/grill"} render={() =>
                         <Grill splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={"/garnish-and-extras"} render={() =>
+                    <Route path={"/menu/garnish-and-extras"} render={() =>
                         <GarnishAndExtras splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={"/desserts-and-snacks"} render={() =>
+                    <Route path={"/menu/desserts-and-snacks"} render={() =>
                         <DessertsAndSnacks splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={"/drinks"} render={() =>
+                    <Route path={"/menu/drinks"} render={() =>
                         <Drinks splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={"/dishes-to-order"} render={() =>
+                    <Route path={"/menu/dishes-to-order"} render={() =>
                         <DisheshToOrder splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={"/specialities-of-the-house"} render={() =>
+                    <Route path={"/menu/specialities-of-the-house"} render={() =>
                         <SpecialitiesOfTheHouse splitProducts={this.splitProductByType}/>}>
+                    </Route>
+
+                    <Route path={`/edit-product/:productName`} render={() =>
+                        <Edit/>}>
                     </Route>
                     {/*<Route path="/ingredients/:ingredientId/edit" render={() =>*/}
                 </div>
