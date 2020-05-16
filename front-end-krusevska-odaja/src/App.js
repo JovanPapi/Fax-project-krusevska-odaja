@@ -24,6 +24,7 @@ import {DisheshToOrder} from "./RestaurantMenu/Elements/DishesToOrder";
 import {SpecialitiesOfTheHouse} from "./RestaurantMenu/Elements/SpecialitiesOfTheHouse";
 import {Edit} from "./Product/Edit";
 import {IngredientService} from "./ServerRequests/IngredientService";
+import {Create} from "./Product/Create";
 
 class App extends React.Component {
     constructor(props) {
@@ -177,8 +178,6 @@ class App extends React.Component {
 
         this.props.history.push("/product/edit/" + productName);
     };
-    // "Your product" +
-    // "is successfully send for checking. Thank you for your co-operation."
     editProduct = (productToEdit, currentMenuSection) => {
         let newProductIngredients = [];
         let productToEditIngredients = productToEdit.ingredients.split(" ");
@@ -206,6 +205,17 @@ class App extends React.Component {
         })
     };
 
+    createProduct = (newProductData) => {
+        ProductService.createProduct(newProductData).then(response => {
+            alert("Your product is successfully send for checking. Thank you for your co-operation.");
+            alert(response.data.message);
+            this.props.history.push("/home");
+            window.location.reload();
+        }).catch(error => {
+            alert(error.response.data.message);
+            this.props.history.push("/product/create");
+        })
+    };
 
     splitProductByType = (splitType, elementImages, currentMenuSection) => {
         // eslint-disable-next-line array-callback-return
@@ -351,7 +361,9 @@ class App extends React.Component {
                         <Edit allIngredients={this.state.ingredients}
                               edit={this.editProduct}/>}>
                     </Route>
-                    {/*<Route path="/ingredients/:ingredientId/edit" render={() =>*/}
+                    <Route path={"/product/create/"} render={() =>
+                        <Create create={this.createProduct}/>}>
+                    </Route>
                 </div>
             </div>
         );

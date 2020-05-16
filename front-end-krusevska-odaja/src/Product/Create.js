@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import $ from "jquery";
 
-export const Edit = (props) => {
+export const Create = (props) => {
     const productToEdit = JSON.parse(sessionStorage.getItem("productToEdit"));
     const currentMenuSection = sessionStorage.getItem("currentMenuSection");
     const [english, setEnglish] = useState(false);
@@ -50,8 +50,8 @@ export const Edit = (props) => {
         if (!validateData(productName, productNameTranslated, productIngredients)) {
             return;
         }
-        const productEditData = {
-            id: productToEdit.id,
+        const newProductData = {
+            id: "",
             name: productName.toUpperCase(),
             nameTranslated: productNameTranslated,
             valuta: productValuta,
@@ -60,7 +60,7 @@ export const Edit = (props) => {
             description: productDescription,
             ingredients: productIngredients
         };
-        props.edit(productEditData,currentMenuSection);
+        props.create(newProductData, currentMenuSection);
     };
 
     const validateData = (productName, productNameTranslated, productIngredients) => {
