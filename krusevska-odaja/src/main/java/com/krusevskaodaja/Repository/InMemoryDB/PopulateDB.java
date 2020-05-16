@@ -161,440 +161,440 @@ public class PopulateDB {
 
     public void fillSalads(List<Ingredient> ingredients, List<Product> products) {
 
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Сезонска", "Season", "100",
-                "денари", "Salad", "", splitIngredients(ingredients, "Зелка Патлиџан Краставица Цвекло Морков"));
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Сезонска", "Season", "денари",
+                "100", "Salad", "", splitIngredients(ingredients, "Зелка Патлиџан Краставица Цвекло Морков"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Шопска", "Shopska", "100",
-                "денари", "Salad", "", splitIngredients(ingredients, "Патлиџан Краставица Кромид Сирење"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Шопска", "Shopska", "денари",
+                "100", "Salad", "", splitIngredients(ingredients, "Патлиџан Краставица Кромид Сирење"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Македонска", "Macedonian", "100",
-                "денари", "Salad", "", splitIngredients(ingredients, "Патлиџан Кромид Пиперка"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Македонска", "Macedonian", "денари",
+                "100", "Salad", "", splitIngredients(ingredients, "Патлиџан Кромид Пиперка"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Егејска", "Egejska", "100",
-                "денари", "Salad", "", splitIngredients(ingredients, "Патлиџан Краставица Сирење Маслинка"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Егејска", "Egejska", "денари",
+                "100", "Salad", "", splitIngredients(ingredients, "Патлиџан Краставица Сирење Маслинка"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Мимоза", "Mimoza", "100",
-                "денари", "Salad", "", splitIngredients(ingredients, "Марула Јајце"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Мимоза", "Mimoza", "денари",
+                "100", "Salad", "", splitIngredients(ingredients, "Марула Јајце"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Таратор", "Tarator", "100",
-                "денари", "Salad", "", splitIngredients(ingredients, "Краставица Павлака Орев"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Таратор", "Tarator", "денари",
+                "100", "Salad", "", splitIngredients(ingredients, "Краставица Павлака Орев"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Овчарска", "Ovcharska", "130",
-                "денари", "Salad", "", splitIngredients(ingredients, "Краставица Патлиџан Сирење Кашкавал Јајце"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Овчарска", "Ovcharska", "денари",
+                "130", "Salad", "", splitIngredients(ingredients, "Краставица Патлиџан Сирење Кашкавал Јајце"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Овчавина", "Ovchavina", "100",
-                "денари", "Salad", "", splitIngredients(ingredients, "Кисели-Пиперки Кајмак Павлака"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Овчавина", "Ovchavina", "денари",
+                "100", "Salad", "", splitIngredients(ingredients, "Кисели-Пиперки Кајмак Павлака"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Туршија", "Trushija", "80",
-                "денари", "Salad", "", splitIngredients(ingredients, "Кисел-Карфиол Зелка Морков Краставички"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Туршија", "Trushija", "денари",
+                "80", "Salad", "", splitIngredients(ingredients, "Кисел-Карфиол Зелка Морков Краставички"));
         products.add(newProduct);
     }
 
     public void fillAppetizers(List<Ingredient> ingredients, List<Product> products) {
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Овчко сирење", "Sheep Cheese", "100",
-                "денари", "Appetizers", "100 г/g", new ArrayList<>());
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Овчко сирење", "Sheep Cheese", "денари",
+                "100", "Appetizers", "100 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Биено сирење", "Hard Cheese", "100",
-                "денари", "Appetizers", "100 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Биено сирење", "Hard Cheese", "денари",
+                "100", "Appetizers", "100 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Козјо сирење", "Goat Cheese", "120",
-                "денари", "Appetizers", "100 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Козјо сирење", "Goat Cheese", "денари",
+                "120", "Appetizers", "100 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Кашкавал", "Yellow Cheese", "80",
-                "денари", "Appetizers", "100 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Кашкавал", "Yellow Cheese", "денари",
+                "80", "Appetizers", "100 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Похован кашкавал", "Breaded Yellow Cheese", "100",
-                "денари", "Appetizers", "100 г/g", splitIngredients(ingredients, "Кашкавал Презла Јајце"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Похован кашкавал", "Breaded Yellow Cheese", "денари",
+                "100", "Appetizers", "100 г/g", splitIngredients(ingredients, "Кашкавал Презла Јајце"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Омлет", "Omlette", "80",
-                "денари", "Appetizers", "3 јајца", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Омлет", "Omlette", "денари",
+                "80", "Appetizers", "3 јајца", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Кајгана", "Scrambled Eggs", "60",
-                "денари", "Appetizers", "3 јајца", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Кајгана", "Scrambled Eggs", "денари",
+                "60", "Appetizers", "3 јајца", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки прсти", "Chicken Fingers", "150",
-                "денари", "Appetizers", "250 г/g", splitIngredients(ingredients, "Пилешко Брашно Презла Јајце"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки прсти", "Chicken Fingers", "денари",
+                "150", "Appetizers", "250 г/g", splitIngredients(ingredients, "Пилешко Брашно Презла Јајце"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Маслинки", "Olives", "80",
-                "денари", "Appetizers", "150 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Маслинки", "Olives", "денари",
+                "80", "Appetizers", "150 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Даска Одаја", "Board Odaja", "450-900",
-                "денари", "Appetizers", "Мала/Голема", splitIngredients(ingredients, "Похован-Кашкавал Тиквици Кромид Зденки Биено-сирење Мазник"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Даска Одаја", "Board Odaja", "денари",
+                "452-900", "Appetizers", "Мала/Голема", splitIngredients(ingredients, "Похован-Кашкавал Тиквици Кромид Зденки Биено-сирење Мазник"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Мазник", "Maznik (Pie)", "80",
-                "денари", "Appetizers", "Парче", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Мазник", "Maznik (Pie)", "денари",
+                "80", "Appetizers", "Парче", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Питулици со лук", "Pitulici With Garlic", "80",
-                "денари", "Appetizers", "Парче", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Питулици со лук", "Pitulici With Garlic", "денари",
+                "80", "Appetizers", "Парче", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пита со праз", "Pie With Leek", "100",
-                "денари", "Appetizers", "Парче", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Пита со праз", "Pie With Leek", "денари",
+                "100", "Appetizers", "Парче", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пита со спанаќ", "Pie With Spinach", "100",
-                "денари", "Appetizers", "Парче", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Пита со спанаќ", "Pie With Spinach", "денари",
+                "100", "Appetizers", "Парче", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Печурки на скара", "Grilled Mushrooms", "80",
-                "денари", "Appetizers", "200Г", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Печурки на скара", "Grilled Mushrooms", "денари",
+                "80", "Appetizers", "200Г", new ArrayList<>());
         products.add(newProduct);
     }
 
     public void fillGarnishAndExtras(List<Ingredient> ingredients, List<Product> products) {
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Гарнир", "Garnish", "30",
-                "денари", "GarnishAndExtras", "", new ArrayList<>());
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Гарнир", "Garnish", "денари",
+                "30", "GarnishAndExtras", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Нафора", "Roast Bread", "30",
-                "денари", "GarnishAndExtras", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Нафора", "Roast Bread", "денари",
+                "30", "GarnishAndExtras", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Нафора со сирење", "Roast Bread With Cheese", "50",
-                "денари", "GarnishAndExtras", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Нафора со сирење", "Roast Bread With Cheese", "денари",
+                "50", "GarnishAndExtras", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Помфрит", "Fries small / large", "60-100",
-                "денари", "GarnishAndExtras", "мал / голем", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Помфрит", "Fries small / large", "денари",
+                "60-100", "GarnishAndExtras", "мал / голем", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Помфрит", "Fries With Cheese small / large", "70-120",
-                "денари", "GarnishAndExtras", "мал / голем со сирење", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Помфрит", "Fries With Cheese small / large", "денари",
+                "70-120", "GarnishAndExtras", "мал / голем со сирење", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Парче леб", "Bread Piece", "10",
-                "денари", "GarnishAndExtras", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Парче леб", "Bread Piece", "денари",
+                "10", "GarnishAndExtras", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Луто пиперче", "Hot Pepper", "10",
-                "денари", "GarnishAndExtras", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Луто пиперче", "Hot Pepper", "денари",
+                "10", "GarnishAndExtras", "", new ArrayList<>());
         products.add(newProduct);
     }
 
     public void fillGrill(List<Ingredient> ingredients, List<Product> products) {
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Кебап", "Kebab", "15",
-                "денари", "Grill", "40 г/g", splitIngredients(ingredients, "Свинско Јунешко"));
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Кебап", "Kebab", "денари",
+                "15", "Grill", "40 г/g", splitIngredients(ingredients, "Свинско Јунешко"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Плескавица", "Burger", "60",
-                "денари", "Grill", "150 г/g", splitIngredients(ingredients, "Свинско Јунешко"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Плескавица", "Burger", "денари",
+                "60", "Grill", "150 г/g", splitIngredients(ingredients, "Свинско Јунешко"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Ловечка плескавица", "Burger Lovecka Small", "120",
-                "денари", "Grill", "мала 250 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Ловечка плескавица", "Burger Lovecka Small", "денари",
+                "120", "Grill", "мала 250 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Ловечка плескавица", "Burger Lovecka Large", "180",
-                "денари", "Grill", "голема 350 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Ловечка плескавица", "Burger Lovecka Large", "денари",
+                "180", "Grill", "голема 350 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Македонка", "Makedonka Smal", "150",
-                "денари", "Grill", "мала 300 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Македонка", "Makedonka Smal", "денари",
+                "150", "Grill", "мала 300 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Македонка", "Makedonka Large", "200",
-                "денари", "Grill", "400 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Македонка", "Makedonka Large", "денари",
+                "200", "Grill", "400 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Уштипец", "Fritters", "120",
-                "денари", "Grill", "200 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал Лук"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Уштипец", "Fritters", "денари",
+                "120", "Grill", "200 г/g", splitIngredients(ingredients, "Свинско Јунешко Кашкавал Лук"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Ребро", "Pork Rib", "130",
-                "денари", "Grill", "300 г/g", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Ребро", "Pork Rib", "денари",
+                "130", "Grill", "300 г/g", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Кременадла", "Pork Chop", "120",
-                "денари", "Grill", "220 г/g", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Кременадла", "Pork Chop", "денари",
+                "120", "Grill", "220 г/g", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Вешалица", "Ramsteak", "130",
-                "денари", "Grill", "Мала/Голема", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Вешалица", "Ramsteak", "денари",
+                "130", "Grill", "Мала/Голема", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Свински Ражнич", "Pork Kabobs", "130",
-                "денари", "Grill", "200 г/g", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Свински Ражнич", "Pork Kabobs", "денари",
+                "130", "Grill", "200 г/g", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки Ражнич", "Chicken Kabobs", "130",
-                "денари", "Grill", "200 г/g", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки Ражнич", "Chicken Kabobs", "денари",
+                "130", "Grill", "200 г/g", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Свински Увијач", "Wrapped Pork Meat", "140",
-                "денари", "Grill", "240 г/g", splitIngredients(ingredients, "Свинско-каре"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Свински Увијач", "Wrapped Pork Meat", "денари",
+                "140", "Grill", "240 г/g", splitIngredients(ingredients, "Свинско-каре"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки Увијач", "Wrapped Chicken Meat", "140",
-                "денари", "Grill", "240 г/g", splitIngredients(ingredients, "Пилешко Кашкавал"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки Увијач", "Wrapped Chicken Meat", "денари",
+                "140", "Grill", "240 г/g", splitIngredients(ingredients, "Пилешко Кашкавал"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Крушевски колбас", "Sausage Krushevski", "120",
-                "денари", "Grill", "180 г/g", splitIngredients(ingredients, "Свинско-месо Праз"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Крушевски колбас", "Sausage Krushevski", "денари",
+                "120", "Grill", "180 г/g", splitIngredients(ingredients, "Свинско-месо Праз"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки стек", "Chicken steak", "100",
-                "денари", "Grill", "200 г/g", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки стек", "Chicken steak", "денари",
+                "100", "Grill", "200 г/g", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки стек во сос", "Chicken Steak With Sauce", "150",
-                "денари", "Grill", "200 г/g", splitIngredients(ingredients, "Пилешко Сос-со-печурки"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Пилешки стек во сос", "Chicken Steak With Sauce", "денари",
+                "150", "Grill", "200 г/g", splitIngredients(ingredients, "Пилешко Сос-со-печурки"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Натур шницла", "Natur Escalope", "200",
-                "денари", "Grill", "200 г/g", splitIngredients(ingredients, "Свинско-каре Сос"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Натур шницла", "Natur Escalope", "денари",
+                "200", "Grill", "200 г/g", splitIngredients(ingredients, "Свинско-каре Сос"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Фаширана Шницла", "Minced Meat Steak", "150",
-                "денари", "Grill", "200 г/g", splitIngredients(ingredients, "Мелено-месо Брашно Презла Јајце"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Фаширана Шницла", "Minced Meat Steak", "денари",
+                "150", "Grill", "200 г/g", splitIngredients(ingredients, "Мелено-месо Брашно Презла Јајце"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Бечка шницла", "Wiener Schnitzel", "160",
-                "денари", "Grill", "200 г/g", splitIngredients(ingredients, "Свинско-каре Брашно Презла Јајце"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Бечка шницла", "Wiener Schnitzel", "денари",
+                "160", "Grill", "200 г/g", splitIngredients(ingredients, "Свинско-каре Брашно Презла Јајце"));
         products.add(newProduct);
     }
 
     public void fillSpecialitiesOfHouse(List<Ingredient> ingredients, List<Product> products) {
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Крушевска сабја", "Krushevska Sabja", "280",
-                "денари", "Specialities", "300г", splitIngredients(ingredients, "Свинско Пилешко Мелено-месо Зеленчук"));
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Крушевска сабја", "Krushevska Sabja", "денари",
+                "280", "Specialities", "300г", splitIngredients(ingredients, "Свинско Пилешко Мелено-месо Зеленчук"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Полнето свински филе", "Stuffed Pork Tenderloin", "300",
-                "денари", "Specialities", "350г", splitIngredients(ingredients, "Свинско-филе Кашкавал Печурки"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Полнето свински филе", "Stuffed Pork Tenderloin", "денари",
+                "300", "Specialities", "350г", splitIngredients(ingredients, "Свинско-филе Кашкавал Печурки"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Македонскка тава", "Macedonian Pan", "250",
-                "денари", "Specialities", "300г", splitIngredients(ingredients, "Свинско Стек Колбас Зеленчук"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Македонскка тава", "Macedonian Pan", "денари",
+                "250", "Specialities", "300г", splitIngredients(ingredients, "Свинско Стек Колбас Зеленчук"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Селско месо", "Traditional meat", "250",
-                "денари", "Specialities", "300г", splitIngredients(ingredients, "Свинско Мелено-месо Печурки Зеленчук"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Селско месо", "Traditional meat", "денари",
+                "250", "Specialities", "300г", splitIngredients(ingredients, "Свинско Мелено-месо Печурки Зеленчук"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Солено Свински на скара", "Pork Meat On Grill", "160",
-                "денари", "Specialities", "280г", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Солено Свински на скара", "Pork Meat On Grill", "денари",
+                "160", "Specialities", "280г", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Гравче тавче", "Beans Soup", "120",
-                "денари", "Specialities", "", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Гравче тавче", "Beans Soup", "денари",
+                "120", "Specialities", "", null);
         products.add(newProduct);
     }
 
     public void fillDishesToOrder(List<Ingredient> ingredients, List<Product> products) {
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Крушевски кукуруз „Одаја“", "Krushevski Kukuruz „Odaja“", "800",
-                "денари", "DieshesToOrder", "тава за 4 лица", null);
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Крушевски кукуруз „Одаја“", "Krushevski Kukuruz „Odaja“", "денари",
+                "800", "DieshesToOrder", "тава за 4 лица", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Јагнешки ширден „Одаја“", "", "300",
-                "денари", "DieshesToOrder", "350г", splitIngredients(ingredients, "Свинско-месо Јагнешко-месо Зеленчук"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Јагнешки ширден „Одаја“", "", "денари",
+                "300", "DieshesToOrder", "350г", splitIngredients(ingredients, "Свинско-месо Јагнешко-месо Зеленчук"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Грав со пастрма", "Bean Soup With Veal", "1000",
-                "денари", "DieshesToOrder", "тава за 4 лица", null);
+        newProduct = new Product(UUID.randomUUID().toString(), "Грав со пастрма", "Bean Soup With Veal", "денари",
+                "1000", "DieshesToOrder", "тава за 4 лица", null);
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Јагнешка тава „Одаја“", "Lamn Pot „Odaja“", "1600",
-                "денари", "DieshesToOrder", "тава за 4 лица", splitIngredients(ingredients, "Јагнешко-печење Кисело-млеко Јајце"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Јагнешка тава „Одаја“", "Lamn Pot „Odaja“", "денари",
+                "1600", "DieshesToOrder", "тава за 4 лица", splitIngredients(ingredients, "Јагнешко-печење Кисело-млеко Јајце"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Сарма „Одаја“", "Sarma „Odaja“", "800",
-                "денари", "DieshesToOrder", "тава за 4 лица", splitIngredients(ingredients, "Сецкано-свинско-месо Зеленчук"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Сарма „Одаја“", "Sarma „Odaja“", "денари",
+                "800", "DieshesToOrder", "тава за 4 лица", splitIngredients(ingredients, "Сецкано-свинско-месо Зеленчук"));
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Селска тава „Одаја“", "Traditional Pan „Odaja“", "1200",
-                "денари", "DieshesToOrder", "тава за 4 лица", splitIngredients(ingredients, "Свинско-месо Мелено-месо Печурки Зеленчук"));
+        newProduct = new Product(UUID.randomUUID().toString(), "Селска тава „Одаја“", "Traditional Pan „Odaja“", "денари",
+                "1200", "DieshesToOrder", "тава за 4 лица", splitIngredients(ingredients, "Свинско-месо Мелено-месо Печурки Зеленчук"));
         products.add(newProduct);
     }
 
     public void fillDesertsAndSnacks(List<Ingredient> ingredients, List<Product> products) {
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Палачинка", "Pancake", "80",
-                "денари", "Desserts", "", new ArrayList<>());
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Палачинка", "Pancake", "денари",
+                "80", "Desserts", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Сладолед", "Icecream", "100",
-                "денари", "Desserts", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Сладолед", "Icecream", "денари",
+                "100", "Desserts", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Гурабија", "Gurabija (Muffin)", "60",
-                "денари", "Desserts", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Гурабија", "Gurabija (Muffin)", "денари",
+                "60", "Desserts", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Кикирики", "Peanuts", "50",
-                "денари", "Snacks", "100 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Кикирики", "Peanuts", "денари",
+                "50", "Snacks", "100 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Бадеми", "Alomond", "120",
-                "денари", "Snacks", "80 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Бадеми", "Alomond", "денари",
+                "120", "Snacks", "80 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Фстаци", "Pistachio", "120",
-                "денари", "Snacks", "80 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Фстаци", "Pistachio", "денари",
+                "120", "Snacks", "80 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Лешници", "Hazelnut", "120",
-                "денари", "Snacks", "80 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Лешници", "Hazelnut", "денари",
+                "120", "Snacks", "80 г/g", new ArrayList<>());
         products.add(newProduct);
     }
 
     public void fillDrinks(List<Ingredient> ingredients, List<Product> products) {
-        Product newProduct = new Product(UUID.randomUUID().toString(), "Тиквешка жолта", "Brandy Traditional Tikves Yellow", "60",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        Product newProduct = new Product(UUID.randomUUID().toString(), "Тиквешка жолта", "Brandy Traditional Tikves Yellow", "денари",
+                "60", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Тиквешка жолта VS", "Brandy Traditional Special Traditional Tikves Yellow", "80",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Тиквешка жолта VS", "Brandy Traditional Special Traditional Tikves Yellow", "денари",
+                "80", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Тиквешка бела", "Brandy Traditional Tikves White", "60",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Тиквешка бела", "Brandy Traditional Tikves White", "денари",
+                "60", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Коњак", "Cognac", "60",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Коњак", "Cognac", "денари",
+                "60", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Џин", "Gin", "60",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Џин", "Gin", "денари",
+                "60", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Водка", "Vodka", "60",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Водка", "Vodka", "денари",
+                "60", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Смирноф", "Smirnoff", "80",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Смирноф", "Smirnoff", "денари",
+                "80", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Узо", "Ouzo", "60",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Узо", "Ouzo", "денари",
+                "60", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Узо Плумари", "Ouzo Of Plomari", "80",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Узо Плумари", "Ouzo Of Plomari", "денари",
+                "80", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Мастика", "Mastika", "60",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Мастика", "Mastika", "денари",
+                "60", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Шток", "Stock", "80",
-                "денари", "Aperitives", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Шток", "Stock", "денари",
+                "80", "Aperitives", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Џони Вокер", "Johny Walker Whiskey", "120",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Џони Вокер", "Johny Walker Whiskey", "денари",
+                "120", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Џејмисон", "Jameson Whiskey", "150",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Џејмисон", "Jameson Whiskey", "денари",
+                "150", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Џим Бим", "Jim Beam Whisky", "120",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Џим Бим", "Jim Beam Whisky", "денари",
+                "120", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Бејлис", "Baileys", "80",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Бејлис", "Baileys", "денари",
+                "80", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Мартини", "Martini", "80",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Мартини", "Martini", "денари",
+                "80", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пелинковац", "Pelinkovac", "60",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Пелинковац", "Pelinkovac", "денари",
+                "60", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Стомаклија", "Stomaklija", "70",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Стомаклија", "Stomaklija", "денари",
+                "70", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Јегер", "Jager", "80",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Јегер", "Jager", "денари",
+                "80", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Јегер Маистер", "Jager Maister", "120",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Јегер Маистер", "Jager Maister", "денари",
+                "120", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Рум", "Rum", "60",
-                "денари", "Aperitives", "0.4", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Рум", "Rum", "денари",
+                "60", "Aperitives", "0.4", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Смедеревка", "Smederevka", "240",
-                "денари", "Wine", "1 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Смедеревка", "Smederevka", "денари",
+                "240", "Wine", "1 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Кавадарка", "Kavadarka", "240",
-                "денари", "Wine", "1 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Кавадарка", "Kavadarka", "денари",
+                "240", "Wine", "1 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Витач", "Vitach", "250",
-                "денари", "Wine", "1 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Витач", "Vitach", "денари",
+                "250", "Wine", "1 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Вранец", "Vranec", "250",
-                "денари", "Wine", "1 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Вранец", "Vranec", "денари",
+                "250", "Wine", "1 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Розе", "Roze", "240",
-                "денари", "Wine", "1 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Розе", "Roze", "денари",
+                "240", "Wine", "1 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Бунар", "Bunar", "320",
-                "денари", "Wine", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Бунар", "Bunar", "денари",
+                "320", "Wine", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Чаша вино", "Glass Of Wine", "60",
-                "денари", "Wine", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Чаша вино", "Glass Of Wine", "денари",
+                "60", "Wine", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria White", "450",
-                "денари", "Wine", "Бело 0.7 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria White", "денари",
+                "450", "Wine", "Бело 0.7 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria Red", "450",
-                "денари", "Wine", "Црно 0.7 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria Red", "денари",
+                "450", "Wine", "Црно 0.7 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Траминец", "Traminec", "450",
-                "денари", "Wine", "0.7 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Траминец", "Traminec", "денари",
+                "450", "Wine", "0.7 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Темјаника", "Temjanika", "450",
-                "денари", "Wine", "0.7 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Темјаника", "Temjanika", "денари",
+                "450", "Wine", "0.7 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Т'га", "T'ga", "450",
-                "денари", "Wine", "0.7 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Т'га", "T'ga", "денари",
+                "450", "Wine", "0.7 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Розе", "Roze", "450",
-                "денари", "Wine", "0.7 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Розе", "Roze", "денари",
+                "450", "Wine", "0.7 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria White", "120",
-                "денари", "Wine", "Бело 0.187 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria White", "денари",
+                "120", "Wine", "Бело 0.187 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria Red", "120",
-                "денари", "Wine", "Црно 0.187 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Александрија", "Aleksandria Red", "денари",
+                "120", "Wine", "Црно 0.187 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Траминец", "Traminec", "120",
-                "денари", "Wine", "0.187 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Траминец", "Traminec", "денари",
+                "120", "Wine", "0.187 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Темјаника", "Temjanika", "120",
-                "денари", "Wine", "0.187 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Темјаника", "Temjanika", "денари",
+                "120", "Wine", "0.187 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Т'га", "T'ga", "120",
-                "денари", "Wine", "0.187 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Т'га", "T'ga", "денари",
+                "120", "Wine", "0.187 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Александрија Куве", "Aleksandria Cuvee White", "850",
-                "денари", "SpecialWine", "Бело 0.7", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Александрија Куве", "Aleksandria Cuvee White", "денари",
+                "850", "SpecialWine", "Бело 0.7", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Александрија Куве", "Aleksandria Cuvee Red", "850",
-                "денари", "SpecialWine", "Црно 0.7", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Александрија Куве", "Aleksandria Cuvee Red", "денари",
+                "850", "SpecialWine", "Црно 0.7", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Каберне Савињон", "Cabernet Sauvignon", "850",
-                "денари", "SpecialWine", "Црно 0.7", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Каберне Савињон", "Cabernet Sauvignon", "денари",
+                "850", "SpecialWine", "Црно 0.7", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Сувињон Бланк", "Sauvignon Blanc", "850",
-                "денари", "SpecialWine", "0.7", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Сувињон Бланк", "Sauvignon Blanc", "денари",
+                "850", "SpecialWine", "0.7", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Р'кацатели", "R'kacateli", "850",
-                "денари", "SpecialWine", "0.7", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Р'кацатели", "R'kacateli", "денари",
+                "850", "SpecialWine", "0.7", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Бела Вода", "White Wather Whine White / Red", "2000",
-                "денари", "SpecialWine", "Бело / Врно 0.7", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Бела Вода", "White Wather Whine White / Red", "денари",
+                "2000", "SpecialWine", "Бело / Врно 0.7", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Барово", "Barovo White / Red", "2000",
-                "денари", "SpecialWine", "Бело / Црно 0.7", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Барово", "Barovo White / Red", "денари",
+                "2000", "SpecialWine", "Бело / Црно 0.7", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Каменица", "Kamenitza", "70",
-                "денари", "Beer", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Каменица", "Kamenitza", "денари",
+                "70", "Beer", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Јелен", "Jelen", "70",
-                "денари", "Beer", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Јелен", "Jelen", "денари",
+                "70", "Beer", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Старопрамен", "Staropramen", "100",
-                "денари", "Beer", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Старопрамен", "Staropramen", "денари",
+                "100", "Beer", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Стела", "Stella Artois", "100",
-                "денари", "Beer", "0.33", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Стела", "Stella Artois", "денари",
+                "100", "Beer", "0.33", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Бекс", "Becks", "100",
-                "денари", "Beer", "0.33", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Бекс", "Becks", "денари",
+                "100", "Beer", "0.33", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Скопско", "Skopsko", "70",
-                "денари", "Beer", "0.5", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Скопско", "Skopsko", "денари",
+                "70", "Beer", "0.5", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Македонско", "Makedonsko", "30",
-                "денари", "Coffee", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Македонско", "Makedonsko", "денари",
+                "30", "Coffee", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Еспресо", "Espresso", "30",
-                "денари", "Coffee", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Еспресо", "Espresso", "денари",
+                "30", "Coffee", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Макијато", "Macchiato", "40",
-                "денари", "Coffee", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Макијато", "Macchiato", "денари",
+                "40", "Coffee", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Нес кафе", "Nescafe", "60",
-                "денари", "Coffee", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Нес кафе", "Nescafe", "денари",
+                "60", "Coffee", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Капучино", "Cappuccino", "60",
-                "денари", "Coffee", "", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Капучино", "Cappuccino", "денари",
+                "60", "Coffee", "", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Чај", "Tea", "40",
-                "денари", "Tea", "150 г/g", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Чај", "Tea", "денари",
+                "40", "Tea", "150 г/g", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Кока Кола", "Coca Cola", "60",
-                "денари", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Кока Кола", "Coca Cola", "денари",
+                "60", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Фанта", "Fanta", "60",
-                "денари", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Фанта", "Fanta", "денари",
+                "60", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Швепс", "Schweppes", "60",
-                "денари", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Швепс", "Schweppes", "денари",
+                "60", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Тоник", "Tonic", "60",
-                "денари", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Тоник", "Tonic", "денари",
+                "60", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Спрајт", "Sprite", "60",
-                "денари", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Спрајт", "Sprite", "денари",
+                "60", "SoftDrinks", "0.25 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Густи Сокови", "Juice", "70",
-                "денари", "SoftDrinks", "0.2 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Густи Сокови", "Juice", "денари",
+                "70", "SoftDrinks", "0.2 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Sparkling", "40",
-                "денари", "SoftDrinks", "газирана 0.25 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Sparkling", "денари",
+                "40", "SoftDrinks", "газирана 0.25 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Stil", "40",
-                "денари", "SoftDrinks", "негазирана 0.25 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Stil", "денари",
+                "40", "SoftDrinks", "негазирана 0.25 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Still / Sparkling", "60",
-                "денари", "SoftDrinks", "газирана / негазирана 0.7 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Still / Sparkling", "денари",
+                "60", "SoftDrinks", "газирана / негазирана 0.7 Л/L", new ArrayList<>());
         products.add(newProduct);
-        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Sparkling", "60",
-                "денари", "SoftDrinks", "газирана 1 Л/L", new ArrayList<>());
+        newProduct = new Product(UUID.randomUUID().toString(), "Пелистерка", "Pelisterka Sparkling", "денари",
+                "60", "SoftDrinks", "газирана 1 Л/L", new ArrayList<>());
         products.add(newProduct);
     }
 }

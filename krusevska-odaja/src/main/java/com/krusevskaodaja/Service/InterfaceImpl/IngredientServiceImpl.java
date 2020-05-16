@@ -81,7 +81,7 @@ public class IngredientServiceImpl implements IngredientService {
     public Ingredient getIngredientByName(String ingredientName) {
         Optional<Ingredient> checkIngredient = ingredientRepository.findAll()
                 .stream()
-                .filter(ingredient -> ingredient.getName().toUpperCase().equals(ingredientName.toUpperCase()))
+                .filter(ingredient -> ingredient.getNameTranslate().toUpperCase().equals(ingredientName.toUpperCase()))
                 .findFirst();
         if (checkIngredient.isEmpty()) {
             return null;

@@ -18,7 +18,7 @@ public class IngredientApiController {
         this.ingredientService = ingredientService;
     }
 
-    @GetMapping("/allIngredients")
+    @GetMapping("/all-ingredients")
     public List<Ingredient> fetchAllIngredients() {
         return ingredientService.getAllIngredients();
     }

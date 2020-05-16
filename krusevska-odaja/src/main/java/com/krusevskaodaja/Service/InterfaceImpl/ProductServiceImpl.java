@@ -60,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
         } else {
             product = productRepository.getOne(productToProcess.getId());
         }
-        product.setName(productToProcess.getName());
+        product.setName(productToProcess.getName().toUpperCase());
         product.setNameTranslated(productToProcess.getNameTranslated());
         product.setDescription(productToProcess.getDescription());
 
