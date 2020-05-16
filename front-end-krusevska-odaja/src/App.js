@@ -23,6 +23,7 @@ import {Drinks} from "./RestaurantMenu/Elements/Drinks";
 import {DisheshToOrder} from "./RestaurantMenu/Elements/DishesToOrder";
 import {SpecialitiesOfTheHouse} from "./RestaurantMenu/Elements/SpecialitiesOfTheHouse";
 import {Edit} from "./Product/Edit";
+import {IngredientService} from "./ServerRequests/IngredientService";
 
 class App extends React.Component {
     constructor(props) {
@@ -41,9 +42,13 @@ class App extends React.Component {
         });
         ProductService.fetchAllSuggestedProducts().then(response => {
             this.setState({suggestedProducts: response.data})
+        });
+        IngredientService.fetchAllIngredients().then(response => {
+            this.setState({ingredients: response.data})
         })
     }
 
+    //functions for the user
     userLogIn = (logInData) => {
         UserService.logInUser(logInData).then(response => {
             const user = JSON.stringify(response.data);
@@ -139,7 +144,9 @@ class App extends React.Component {
             this.props.history.push("/my-reservation");
         })
     };
-    deleteProduct = (productId, currentMenuSection) => {
+
+    // functions for the products
+    deleteProduct = (productId, productName, currentMenuSection) => {
         ProductService.deleteProduct(productId).then(response => {
             alert(response.data.message);
             this.setState(prevState => {
@@ -158,18 +165,54 @@ class App extends React.Component {
             this.props.history.push("/menu/" + currentMenuSection);
         })
     };
+    findProductToEdit = (productId, productName, currentMenuSection) => {
+        const productToEdit = this.state.products.filter(product => {
+            if (product.id === productId) {
+                return product;
+            }
+        });
+        sessionStorage.setItem("productToEdit", JSON.stringify(productToEdit[0]));
+        // mozi da se izvedi i samo so url params preku push, za da se odbegni cuvanjeto na plus 1 objekt vo state
+        sessionStorage.setItem("currentMenuSection", currentMenuSection);
 
-    //TODO next to implement is update product, now that we fixed with loading scripts and stylesheets.
-    updateProduct = (productId, currentMenuSection) => {
-
+        this.props.history.push("/product/edit/" + productName);
     };
+    // "Your product" +
+    // "is successfully send for checking. Thank you for your co-operation."
+    editProduct = (productToEdit, currentMenuSection) => {
+        let newProductIngredients = [];
+        let productToEditIngredients = productToEdit.ingredients.split(" ");
+        for (let i = 0; i < productToEditIngredients.length; i++) {
+            for (let j = 0; j < Object.keys(this.state.ingredients).length; j++) {
+                if (this.state.ingredients[j].nameTranslate.toUpperCase().match(productToEditIngredients[i])) {
+                    newProductIngredients.push(this.state.ingredients[j]);
+                }
+            }
+        }
+
+        ProductService.updateProduct(productToEdit).then(response => {
+            alert("You have successfully updated the product. Click OK to proceed.");
+            productToEdit.ingredients = newProductIngredients;
+            sessionStorage.removeItem("productToEdit");
+            sessionStorage.removeItem("currentSectionMenu");
+            this.props.history.push("/menu/" + currentMenuSection);
+            // ja refreshira stranata (pravi re-render na App komponentata)
+            // upotreba na ovaj nacin za da nema potreba da se koristi state
+            // nasproti toa, se povikuva componentDidMount() pa povtorno se polni state-ot
+            window.location.reload();
+        }).catch(error => {
+            alert(error.response.data.message);
+            this.props.history.push("/menu/" + currentMenuSection);
+        })
+    };
+
+
     splitProductByType = (splitType, elementImages, currentMenuSection) => {
         // eslint-disable-next-line array-callback-return
         let imageCounter = 0;
         let productCounter = 0;
         return this.state.products.map((product, key) => {
             if (product.type === splitType) {
-                let productId = product.id;
                 let productIngredients = "";
                 let productTranslated = product.nameTranslated.toUpperCase() + ": ";
                 let productIngredientsSize = Object.keys(product.ingredients).length;
@@ -195,7 +238,7 @@ class App extends React.Component {
                                         style={{fontSize: 15, paddingLeft: 10}}>{product.description}</span></h5>
                                 </div>
                                 <div className="col-md-5 pull-right">
-                                    <p className="desc mb-0">{product.valuta}&nbsp;&nbsp;{product.price}</p>
+                                    <p className="desc mb-0">{product.price}&nbsp;&nbsp;{product.valuta}</p>
                                 </div>
                             </div>
                             <div className="row">
@@ -211,15 +254,17 @@ class App extends React.Component {
                         </div>
                         <div className="social">
                             <ul>
-                                <li className="facebook" style={{width: 33}}><a
-                                    href=""><i
-                                    className="fa fa-edit"> </i></a></li>
+                                <li className="facebook" style={{width: 33}}
+                                    onClick={() => this.findProductToEdit(product.id, product.name.toLowerCase(), currentMenuSection)}>
+                                    <a
+                                        href=""><i
+                                        className="fa fa-edit"> </i></a></li>
 
                                 <li className="twitter" style={{width: 34}}><a href=""><i
                                     className="fa fa-plus-circle"> </i></a></li>
 
                                 <li className="google-plus" style={{width: 33}}
-                                    onClick={() => this.deleteProduct(productId, currentMenuSection)}>
+                                    onClick={() => this.deleteProduct(product.id, currentMenuSection)}>
                                     <a href=""><i
                                         className="fa fa-remove"> </i></a></li>
                             </ul>
@@ -302,8 +347,9 @@ class App extends React.Component {
                         <SpecialitiesOfTheHouse splitProducts={this.splitProductByType}/>}>
                     </Route>
 
-                    <Route path={`/edit-product/:productName`} render={() =>
-                        <Edit/>}>
+                    <Route path={`/product/edit/:productName`} render={() =>
+                        <Edit allIngredients={this.state.ingredients}
+                              edit={this.editProduct}/>}>
                     </Route>
                     {/*<Route path="/ingredients/:ingredientId/edit" render={() =>*/}
                 </div>
