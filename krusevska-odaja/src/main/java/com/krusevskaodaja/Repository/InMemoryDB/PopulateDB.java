@@ -61,7 +61,7 @@ public class PopulateDB {
             add(new Ingredient(UUID.randomUUID().toString(), "Кајмак", "curd"));
             add(new Ingredient(UUID.randomUUID().toString(), "Кисел Карфиол", "sour cauliflower"));
             add(new Ingredient(UUID.randomUUID().toString(), "Краставички", "pickles"));
-            add(new Ingredient(UUID.randomUUID().toString(), "Презла", ""));
+            add(new Ingredient(UUID.randomUUID().toString(), "Презла", "contempt"));
             add(new Ingredient(UUID.randomUUID().toString(), "Пилешко", "chicken"));
             add(new Ingredient(UUID.randomUUID().toString(), "Брашно", "flour"));
             add(new Ingredient(UUID.randomUUID().toString(), "Похован Кашкавал", "breaded yellow cheese"));
@@ -103,14 +103,6 @@ public class PopulateDB {
             product.setName(product.getName().toUpperCase());
         });
         productRepository.saveAll(products);
-
-
-//        fillIngredients(ingredients, products);
-//
-//        ingredients.forEach(ingredient -> {
-//            ingredient.setName(ingredient.getName().toUpperCase());
-//        });
-//        ingredientRepository.saveAll(ingredients);
     }
 
     public List<Ingredient> splitIngredients(List<Ingredient> ingredients, String ingredientNames) {

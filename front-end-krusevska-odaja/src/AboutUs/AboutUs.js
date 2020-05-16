@@ -6,7 +6,7 @@ import vlatko from "./vlatko-papalazoski.jpg";
 
 export function AboutUs() {
     return (
-        <div className="container">
+        <div className="container" style={{marginTop:90}}>
             <br/>
             <div className="line-div">
                 <h2>Meet the Developer and the Owners</h2>

@@ -25,7 +25,7 @@ import {SpecialitiesOfTheHouse} from "./RestaurantMenu/Elements/SpecialitiesOfTh
 import {Edit} from "./Product/Edit";
 import {IngredientService} from "./ServerRequests/IngredientService";
 import {Create} from "./Product/Create";
-import {SuggestedProduct} from "./Product/SuggestedProduct/SuggestedProduct";
+import {SuggestedProduct} from "./Product/SuggestedProduct";
 
 class App extends React.Component {
     constructor(props) {

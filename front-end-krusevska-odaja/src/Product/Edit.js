@@ -36,7 +36,7 @@ export const Edit = (props) => {
         }
     });
 
-    const handleEdit = (event) => {
+    function handleEdit(event) {
         event.preventDefault();
 
         let productName = event.target.inputProductName.value;
@@ -60,10 +60,10 @@ export const Edit = (props) => {
             description: productDescription,
             ingredients: productIngredients
         };
-        props.edit(productEditData,currentMenuSection);
+        props.edit(productEditData, currentMenuSection);
     };
 
-    const validateData = (productName, productNameTranslated, productIngredients) => {
+    function validateData(productName, productNameTranslated, productIngredients) {
         if (productName.trim() === "") {
             $("#warningProductName").text("The field must not be empty!").show();
             return false;
@@ -94,7 +94,7 @@ export const Edit = (props) => {
         return true
     };
     return (
-        <div className="container">
+        <div className="container" style={{marginTop:70}}>
             <br/>
             <br/>
             <div className="d-flex justify-content-center h-100">

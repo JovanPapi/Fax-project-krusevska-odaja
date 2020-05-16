@@ -6,7 +6,7 @@ import slika3 from "./slika3.jpg"
 
 export function HomeEvents() {
     return (
-        <div className="container home-event">
+        <div className="container home-event" style={{marginTop:90}}>
             <br/>
             <div className="row">
                 <div className="col-md">

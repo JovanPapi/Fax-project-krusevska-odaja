@@ -16,7 +16,7 @@ export const SpecialitiesOfTheHouse = (props) => {
         , traditionalMeat, porkMeatOnGrill];
     const specialitiesOfTheHouse = props.splitProducts("SPECIALITIES", specialitiesOfTheHouseImages, "specialities-of-the-house");
     return (
-        <div className="container">
+        <div className="container" id="restaurant-element">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">

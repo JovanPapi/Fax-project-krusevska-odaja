@@ -4,7 +4,7 @@ import {Redirect} from "react-router-dom";
 
 export const Reservation = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-
+    console.log(currentUser);
     const handleReservation = (event) => {
         event.preventDefault();
 
@@ -27,18 +27,14 @@ export const Reservation = (props) => {
     };
     const validateData = (phoneNumber) => {
         if (!phoneNumber.match(currentUser.phoneNumber[0].phoneNumber)) {
-            $("#warningPhoneNumber1").text("This phone number doesnt match with any number of yours!" +
-                " Please enter one of your numbers.").show();
-            return false;
-        } else {
-            $("#warningPhoneNumber1").text("").hide();
-        }
-        if (currentUser.phoneNumber[1] !== undefined && !phoneNumber.match(currentUser.phoneNumber[1].phoneNumber)) {
-            $("#warningPhoneNumber1").text("This phone number doesnt match with any number of yours!" +
-                " Please enter one of your numbers.").show();
-            return false;
-        } else {
-            $("#warningPhoneNumber1").text("").hide();
+            if (currentUser.phoneNumber[1] !== undefined && phoneNumber.match(currentUser.phoneNumber[1])) {
+                $("#warningPhoneNumber1").text("").hide();
+                return true;
+            } else {
+                $("#warningPhoneNumber1").text("This phone number doesnt match with any number of yours!" +
+                    " Please enter one of your numbers.").show();
+                return false;
+            }
         }
         return true;
     };
@@ -85,7 +81,7 @@ export const Reservation = (props) => {
             maxDateString = date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + final;
         }
         return (
-            <div className="container">
+            <div className="container" style={{marginTop: 80}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">

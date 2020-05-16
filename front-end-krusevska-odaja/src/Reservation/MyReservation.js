@@ -13,7 +13,7 @@ export const MyReservation = (props) => {
     if (currentUser !== null && currentUser.reservation !== null) {
         const userReservation = currentUser.reservation;
         return (
-            <div className="container w-50">
+            <div className="container w-50" style={{marginTop:80}}>
                 <br/>
                 <br/>
                 <div className="container-cart bg-dark">

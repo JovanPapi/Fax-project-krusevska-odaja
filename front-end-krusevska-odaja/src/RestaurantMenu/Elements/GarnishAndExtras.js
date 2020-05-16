@@ -17,7 +17,7 @@ export const GarnishAndExtras = (props) => {
     let garnishAndExtrasImages = [garnish, hotPepper, roastBread, roastBreadWithCheese, breadPiece, fries, friesWithCheese];
     const garnishAndExtras = props.splitProducts("GARNISHANDEXTRAS", garnishAndExtrasImages, "garnish-and-extras");
     return (
-        <div className="container">
+        <div className="container" id="restaurant-element">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">

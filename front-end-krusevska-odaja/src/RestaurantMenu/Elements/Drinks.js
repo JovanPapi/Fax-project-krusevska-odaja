@@ -191,7 +191,7 @@ export class Drinks extends React.Component {
             , pelisterkaMiddle, pelisterkaSparklingLarge, sprite, tonic, fanta, schweppes];
         const softDrinks = this.props.splitProducts("SOFTDRINKS", softDrinkImages);
         return (
-            <div className="container w-50 mt-3">
+            <div className="container w-50" style={{marginTop:100}}>
                 <h2 style={{color: 'white'}}>View all your desired drinks!</h2>
                 <div className="accordion" id="accordion">
                     <div className="panel">

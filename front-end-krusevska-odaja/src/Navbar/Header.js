@@ -6,7 +6,7 @@ import logo from "./krusevska-odaja-logo.jpg";
 export const Header = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     return (
-        <nav className="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark fixed-top">
             <span className="navbar-brand pt-0 pb-0">
                 <img src={logo} alt="logo" width="80px" height="70px"/>
                 Krusevska Odaja

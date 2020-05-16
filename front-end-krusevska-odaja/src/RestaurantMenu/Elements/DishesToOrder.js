@@ -14,7 +14,7 @@ export const DisheshToOrder = (props) => {
     let disheshToOrderImages = [beanSoupWithFish, "", sarmaOdaja, traditionalPanOdaja, lambPotOdaja, jagneskiSirden];
     const dishesToOrder = props.splitProducts("DIESHESTOORDER", disheshToOrderImages, "dishes-to-order");
     return (
-        <div className="container">
+        <div className="container" id="restaurant-element">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">

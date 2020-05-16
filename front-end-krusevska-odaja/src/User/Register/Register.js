@@ -108,7 +108,7 @@ export const Register = (props) => {
     };
     if (currentUser === null) {
         return (
-            <div className="container">
+            <div className="container" style={{marginTop:80}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">

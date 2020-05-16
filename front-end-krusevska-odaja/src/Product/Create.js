@@ -33,7 +33,7 @@ export const Create = (props) => {
         }
     });
 
-    const handleEdit = (event) => {
+    function handleEdit(event) {
         event.preventDefault();
 
         let productName = event.target.inputProductName.value;
@@ -47,6 +47,7 @@ export const Create = (props) => {
         if (!validateData(productName, productNameTranslated, productIngredients)) {
             return;
         }
+        console.log(productIngredients+"dasda");
         const newProductData = {
             id: "",
             name: productName.toUpperCase(),
@@ -60,7 +61,7 @@ export const Create = (props) => {
         props.create(newProductData);
     };
 
-    const validateData = (productName, productNameTranslated, productIngredients) => {
+    function validateData(productName, productNameTranslated, productIngredients) {
         if (productName.trim() === "") {
             $("#warningProductName").text("The field must not be empty!").show();
             return false;
@@ -73,12 +74,12 @@ export const Create = (props) => {
         } else {
             $("#warningProductNameTranslated").text("").hide();
         }
-        if (productIngredients.trim() === "") {
-            $("#warningProductIngredients").text("The field must not be empty!").show();
-            return false;
-        } else {
-            $("#warningProductIngredients").text("").hide();
-        }
+        // if (productIngredients.trim() === "") {
+        //     $("#warningIngredients").text("The field must not be empty!").show();
+        //     return false;
+        // } else {
+        //     $("#warningIngredients").text("").hide();
+        // }
         for (let i = 0; i < productIngredients.length; i++) {
             let characterData = productIngredients.charAt(i);
             if (characterData.match(/[!@#$%^&*().,"'`/\\]/)) {
@@ -91,13 +92,13 @@ export const Create = (props) => {
         return true
     };
     return (
-        <div className="container">
+        <div className="container" style={{marginTop:70}}>
             <br/>
             <br/>
             <div className="d-flex justify-content-center h-100">
                 <div className="card card-signin bg-dark">
                     <div className="card-header">
-                        <h3>Edit product</h3>
+                        <h3>Create product</h3>
                     </div>
                     <div className="card-body">
                         <form onSubmit={handleEdit}>

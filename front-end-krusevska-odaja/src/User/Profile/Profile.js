@@ -48,7 +48,7 @@ export class Profile extends React.Component {
                 )
             });
             return (
-                <div className="container w-50">
+                <div className="container w-50" style={{marginTop:80}}>
                     <br/>
                     <br/>
                     <div className="container-cart bg-dark">

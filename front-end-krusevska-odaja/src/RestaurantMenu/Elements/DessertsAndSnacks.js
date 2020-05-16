@@ -18,7 +18,7 @@ export const DessertsAndSnacks = (props) => {
     const desserts = props.splitProducts("DESSERTS", dessertsImages, "desserts-and-snacks");
     const snacks = props.splitProducts("SNACKS", snacksImages, "desserts-and-snacks");
     return (
-        <div className="container">
+        <div className="container" id="restaurant-element">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">

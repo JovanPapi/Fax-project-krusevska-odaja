@@ -17,7 +17,7 @@ export const Salads = (props) => {
     let saladImages = [egejska, macedonian, mimoza, ovchavina, ovcharska, season, tarator, turshija, shopska];
     const salads = props.splitProducts("SALAD", saladImages,"salads");
     return (
-        <div className="container">
+        <div className="container" id="restaurant-element">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">

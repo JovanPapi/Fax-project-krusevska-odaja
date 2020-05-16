@@ -1,5 +1,4 @@
 import React from "react";
-import "./SuggestedProduct.css";
 
 export const SuggestedProduct = (props) => {
     const tds = props.suggestedProducts.map((product, key) => {
@@ -17,7 +16,7 @@ export const SuggestedProduct = (props) => {
             })
         }
         return (
-            <tr>
+            <tr key={key}>
                 <td>{product.name}</td>
                 <td>{product.nameTranslated}</td>
                 <td>{product.price}</td>
@@ -29,13 +28,14 @@ export const SuggestedProduct = (props) => {
         )
     });
     return (
-        <div className="container">
+        <div className="container" style={{marginTop: 90}}>
             <br/>
             <div className="row">
                 <div className="col-md-12">
                     <div className="panel">
-                        <div className="panel-heading  w-100 bg-dark" style={{height: 40, borderRadius: 10, color:'white'}}>
-                            <h3>Suggested Products</h3>
+                        <div className="panel-heading  w-100 bg-dark"
+                             style={{height: 40, borderRadius: 10, color: 'white'}}>
+                            <h2>Suggested Products</h2>
                         </div>
                         <div className="panel-body">
                             <table className="table">

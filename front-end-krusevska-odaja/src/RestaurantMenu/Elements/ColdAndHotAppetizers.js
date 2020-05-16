@@ -26,7 +26,7 @@ export const ColdAndHotAppetizers = (props) => {
         , omlette, grilledMushrooms, chickenFingers, pieWithLeek, pieWithSpinach, pituliciWithGarlic, breadedYellowCheese];
     const coldAndHotAppetizers = props.splitProducts("APPETIZERS", coldAndHotAppetizersImages, "cold-and-hot-appetizers");
     return (
-        <div className="container">
+        <div className="container" id="restaurant-element">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">

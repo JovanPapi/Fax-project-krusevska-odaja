@@ -32,7 +32,7 @@ export const Grill = (props) => {
         , wrappedChickenMeat, burger, porkRib, porkKabobs, wrappedPorkMeat, fritters, mincedMeatSteak];
     const grill = props.splitProducts("GRILL", grillImages, "grill");
     return (
-        <div className="container">
+        <div className="container" id="restaurant-element">
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">

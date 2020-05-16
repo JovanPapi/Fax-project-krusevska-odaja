@@ -97,7 +97,7 @@ export const UpdateProfile = (props) => {
             )
         });
         return (
-            <div className="container">
+            <div className="container" style={{marginTop:80}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">
@@ -166,7 +166,7 @@ export const UpdateProfile = (props) => {
                                     and terms
                                 </div>
                                 <div className="form-group">
-                                    <input type="submit" value="Register" className="btn login_btn"/>
+                                    <input type="submit" value="Update" className="btn login_btn"/>
                                 </div>
                             </form>
                         </div>

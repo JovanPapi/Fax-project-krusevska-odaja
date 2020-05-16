@@ -41,7 +41,7 @@ export const LogIn = (props) => {
     };
     if (currentUser === null) {
         return (
-            <div className="container">
+            <div className="container" style={{marginTop:90}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">
