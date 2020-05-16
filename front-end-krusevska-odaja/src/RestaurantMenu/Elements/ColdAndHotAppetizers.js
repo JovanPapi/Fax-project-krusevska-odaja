@@ -42,7 +42,7 @@ export const ColdAndHotAppetizers = (props) => {
             <br/>
             <div className="row justify-content-center">
                 <div className="col-md-3">
-                    <Link to={"/create-product"} className="btn btn-primary mb-3">Create product</Link>
+                    <Link to={"/product/create"} className="btn btn-primary mb-3">Create product</Link>
                 </div>
                 <br/>
                 <div className="col-md-3">

@@ -25,6 +25,7 @@ import {SpecialitiesOfTheHouse} from "./RestaurantMenu/Elements/SpecialitiesOfTh
 import {Edit} from "./Product/Edit";
 import {IngredientService} from "./ServerRequests/IngredientService";
 import {Create} from "./Product/Create";
+import {SuggestedProduct} from "./Product/SuggestedProduct/SuggestedProduct";
 
 class App extends React.Component {
     constructor(props) {
@@ -204,10 +205,8 @@ class App extends React.Component {
             this.props.history.push("/menu/" + currentMenuSection);
         })
     };
-
     createProduct = (newProductData) => {
         ProductService.createProduct(newProductData).then(response => {
-            alert("Your product is successfully send for checking. Thank you for your co-operation.");
             alert(response.data.message);
             this.props.history.push("/home");
             window.location.reload();
@@ -292,77 +291,75 @@ class App extends React.Component {
                     <Header logOff={this.userLogOff}/>
                 </div>
                 <div className="main">
-                    <Route path={"/log-in"} render={() =>
-                        <LogIn logIn={this.userLogIn}/>}>
-                    </Route>
+                    {/*basic routes*/}
                     <Route path={"/home"} render={() =>
                         <HomeEvents/>}>
                     </Route>
                     <Route path={"/about-us"} render={() =>
                         <AboutUs/>}>
                     </Route>
+
+                    {/*user routes*/}
                     <Route path={"/register"} render={() =>
                         <Register register={this.userRegister}/>}>
                     </Route>
-
                     <Route exact path={"/profile"} render={() =>
                         <Profile logOff={this.userLogOff}/>}>
                     </Route>
-
                     <Route exact path={"/update-profile"} render={() =>
                         <UpdateProfile update={this.userProfileUpdate}/>}>
                     </Route>
-
                     <Route path={"/change-password"} render={() =>
                         <ChangePassword changePassword={this.userChangePassword}/>}>
                     </Route>
+                    <Route path={"/log-in"} render={() =>
+                        <LogIn logIn={this.userLogIn}/>}>
+                    </Route>
 
+                    {/*reservation routes*/}
                     <Route path={"/reservation"} render={() =>
                         <Reservation makeReservation={this.userReservation}/>}>
                     </Route>
-
                     <Route path={"/my-reservation"} render={() =>
                         <MyReservation deleteReservation={this.deleteReservation}/>}>
                     </Route>
 
-                    <Route path={"/menu/salads"} render={() =>
-                        <Salads splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
-                    <Route path={"/menu/cold-and-hot-appetizers"} render={() =>
-                        <ColdAndHotAppetizers splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
-                    <Route path={"/menu/grill"} render={() =>
-                        <Grill splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
-                    <Route path={"/menu/garnish-and-extras"} render={() =>
-                        <GarnishAndExtras splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
-                    <Route path={"/menu/desserts-and-snacks"} render={() =>
-                        <DessertsAndSnacks splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
-                    <Route path={"/menu/drinks"} render={() =>
-                        <Drinks splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
-                    <Route path={"/menu/dishes-to-order"} render={() =>
-                        <DisheshToOrder splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
-                    <Route path={"/menu/specialities-of-the-house"} render={() =>
-                        <SpecialitiesOfTheHouse splitProducts={this.splitProductByType}/>}>
-                    </Route>
-
+                    {/*product routes*/}
                     <Route path={`/product/edit/:productName`} render={() =>
                         <Edit allIngredients={this.state.ingredients}
                               edit={this.editProduct}/>}>
                     </Route>
-                    <Route path={"/product/create/"} render={() =>
-                        <Create create={this.createProduct}/>}>
+                    <Route path={"/product/create"} render={() =>
+                        <Create allIngredients={this.state.ingredients} create={this.createProduct}/>}>
+                    </Route>
+                    <Route path={"/product/suggested"} render={() =>
+                        <SuggestedProduct suggestedProducts={this.state.suggestedProducts}/>}>
+                    </Route>
+
+                    {/*menu routes*/}
+                    <Route path={"/menu/salads"} render={() =>
+                        <Salads splitProducts={this.splitProductByType}/>}>
+                    </Route>
+                    <Route path={"/menu/cold-and-hot-appetizers"} render={() =>
+                        <ColdAndHotAppetizers splitProducts={this.splitProductByType}/>}>
+                    </Route>
+                    <Route path={"/menu/grill"} render={() =>
+                        <Grill splitProducts={this.splitProductByType}/>}>
+                    </Route>
+                    <Route path={"/menu/garnish-and-extras"} render={() =>
+                        <GarnishAndExtras splitProducts={this.splitProductByType}/>}>
+                    </Route>
+                    <Route path={"/menu/desserts-and-snacks"} render={() =>
+                        <DessertsAndSnacks splitProducts={this.splitProductByType}/>}>
+                    </Route>
+                    <Route path={"/menu/drinks"} render={() =>
+                        <Drinks splitProducts={this.splitProductByType}/>}>
+                    </Route>
+                    <Route path={"/menu/dishes-to-order"} render={() =>
+                        <DisheshToOrder splitProducts={this.splitProductByType}/>}>
+                    </Route>
+                    <Route path={"/menu/specialities-of-the-house"} render={() =>
+                        <SpecialitiesOfTheHouse splitProducts={this.splitProductByType}/>}>
                     </Route>
                 </div>
             </div>

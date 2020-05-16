@@ -2,10 +2,7 @@ import React, {useState} from "react";
 import $ from "jquery";
 
 export const Create = (props) => {
-    const productToEdit = JSON.parse(sessionStorage.getItem("productToEdit"));
-    const currentMenuSection = sessionStorage.getItem("currentMenuSection");
     const [english, setEnglish] = useState(false);
-
     let counter = -1;
     const ingredients = props.allIngredients.map((ingredient, key) => {
         counter++;
@@ -55,12 +52,12 @@ export const Create = (props) => {
             name: productName.toUpperCase(),
             nameTranslated: productNameTranslated,
             valuta: productValuta,
-            price: productPrice,
+            price: productPrice + "*",
             type: productType,
             description: productDescription,
             ingredients: productIngredients
         };
-        props.create(newProductData, currentMenuSection);
+        props.create(newProductData);
     };
 
     const validateData = (productName, productNameTranslated, productIngredients) => {
@@ -107,7 +104,7 @@ export const Create = (props) => {
                             <div className="row">
                                 <div className="col-md-6">
                                     <input type="text" className="form-control"
-                                           placeholder={productToEdit.name}
+                                           placeholder="Name"
                                            required
                                            id={"inputProductName"}
                                            name={"inputProductName"}/>
@@ -117,7 +114,7 @@ export const Create = (props) => {
 
                                 <div className="col-md-6">
                                     <input type="text" className="form-control"
-                                           placeholder={productToEdit.nameTranslated}
+                                           placeholder="Name translated"
                                            required
                                            id={"inputProductTranslatedName"}
                                            name={"inputProductTranslatedName"}/>
@@ -129,7 +126,7 @@ export const Create = (props) => {
                             <div className="row">
                                 <div className="col-md-6">
                                     <input type="number" className="form-control"
-                                           placeholder={productToEdit.price}
+                                           placeholder="Price"
                                            required
                                            id={"inputProductPrice"}
                                            name={"inputProductPrice"}/>
@@ -139,7 +136,7 @@ export const Create = (props) => {
 
                                 <div className="col-md-6">
                                     <input type="text" className="form-control"
-                                           value={productToEdit.valuta}
+                                           value="денари"
                                            readOnly
                                            id={"inputProductValuta"}
                                            name={"inputProductValuta"}/>
@@ -149,7 +146,7 @@ export const Create = (props) => {
                             <div className="row">
                                 <div className="col-md-12">
                                     <textarea className="form-control"
-                                              placeholder={productToEdit.description === "" ? "/" : productToEdit.description}
+                                              placeholder="Description"
                                               id={"inputProductDescription"}
                                               name={"inputProductDescription"}/>
                                 </div>

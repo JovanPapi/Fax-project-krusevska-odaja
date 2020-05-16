@@ -52,7 +52,7 @@ export const Header = (props) => {
                             <Link to={"/menu/specialities-of-the-house"} className="dropdown-item">Специјалитети на
                                 куќата / Specialities of the house</Link>
                             <div className="dropdown-divider"></div>
-                            <Link to={"/menu/suggested-products"} className="dropdown-item">Предложени продукти / Suggested
+                            <Link to={"/product/suggested"} className="dropdown-item">Предложени продукти / Suggested
                                 products</Link>
                         </div>
                     </li>
