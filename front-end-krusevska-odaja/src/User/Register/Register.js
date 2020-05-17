@@ -35,7 +35,8 @@ export const Register = (props) => {
         }
         sessionStorage.setItem("error", "false");
     }
-    const handleRegister = (event) => {
+
+    function handleRegister(event) {
         event.preventDefault();
 
         let fullName = event.target.inputFullName.value;
@@ -75,7 +76,7 @@ export const Register = (props) => {
         props.register(userRegisterData);
     };
 
-    const validateData = (email, password, confirmPassword) => {
+    function validateData(email, password, confirmPassword) {
         if (!email.endsWith(".com")) {
             $("#warningEmail").text("The email is not correct, it must end with '.com'. Please enter a valid email.").show();
             return false;
@@ -90,8 +91,9 @@ export const Register = (props) => {
             $("#warningConfirmPassword").text("").hide();
         }
         return true;
-    };
-    const handlePhoneNumberAdd = () => {
+    }
+
+    function handlePhoneNumberAdd() {
         let rowPhoneNumber2 = $(".rowPhoneNumber2");
         if (!$("#inputPhoneNumber2").length) {
             rowPhoneNumber2.append("<div class='col-md-6 haha'>" +
@@ -105,10 +107,11 @@ export const Register = (props) => {
         } else {
             $(".haha").remove();
         }
-    };
+    }
+
     if (currentUser === null) {
         return (
-            <div className="container" style={{marginTop:80}}>
+            <div className="container" style={{marginTop: 80}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">

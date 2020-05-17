@@ -4,8 +4,8 @@ import {Redirect} from "react-router-dom";
 
 export const Reservation = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-    console.log(currentUser);
-    const handleReservation = (event) => {
+
+    function handleReservation(event) {
         event.preventDefault();
 
         let phoneNumber = event.target.inputPhoneNumber1.value;
@@ -24,8 +24,9 @@ export const Reservation = (props) => {
             time: time
         };
         props.makeReservation(reservationData);
-    };
-    const validateData = (phoneNumber) => {
+    }
+
+    function validateData(phoneNumber) {
         if (!phoneNumber.match(currentUser.phoneNumber[0].phoneNumber)) {
             if (currentUser.phoneNumber[1] !== undefined && phoneNumber.match(currentUser.phoneNumber[1])) {
                 $("#warningPhoneNumber1").text("").hide();
@@ -37,7 +38,8 @@ export const Reservation = (props) => {
             }
         }
         return true;
-    };
+    }
+
     if (currentUser !== null) {
         let date = new Date();
         let year = date.getFullYear();

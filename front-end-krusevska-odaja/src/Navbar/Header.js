@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./Header.css";
 import logo from "./krusevska-odaja-logo.jpg";
+import {VoiceAssistant} from "./voice-assistant";
 
 export const Header = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
@@ -77,6 +78,7 @@ export const Header = (props) => {
                             About us
                         </Link>
                     </li>
+                    <VoiceAssistant logOff={props.logOff}/>
                 </ul>
                 {currentUser === null ? <ul className="navbar-nav">
                     <li className="nav-item">

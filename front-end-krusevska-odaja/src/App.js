@@ -174,7 +174,6 @@ class App extends React.Component {
             }
         });
         sessionStorage.setItem("productToEdit", JSON.stringify(productToEdit[0]));
-        // mozi da se izvedi i samo so url params preku push, za da se odbegni cuvanjeto na plus 1 objekt vo state
         sessionStorage.setItem("currentMenuSection", currentMenuSection);
 
         this.props.history.push("/product/edit/" + productName);
@@ -216,6 +215,7 @@ class App extends React.Component {
         })
     };
 
+    //TODO next thing to do is to put authorization on the needed components and functions
     splitProductByType = (splitType, elementImages, currentMenuSection) => {
         // eslint-disable-next-line array-callback-return
         let imageCounter = 0;

@@ -47,7 +47,7 @@ export const Create = (props) => {
         if (!validateData(productName, productNameTranslated, productIngredients)) {
             return;
         }
-        console.log(productIngredients+"dasda");
+        console.log(productIngredients + "dasda");
         const newProductData = {
             id: "",
             name: productName.toUpperCase(),
@@ -59,7 +59,7 @@ export const Create = (props) => {
             ingredients: productIngredients
         };
         props.create(newProductData);
-    };
+    }
 
     function validateData(productName, productNameTranslated, productIngredients) {
         if (productName.trim() === "") {
@@ -90,9 +90,10 @@ export const Create = (props) => {
             }
         }
         return true
-    };
+    }
+
     return (
-        <div className="container" style={{marginTop:70}}>
+        <div className="container" style={{marginTop: 70}}>
             <br/>
             <br/>
             <div className="d-flex justify-content-center h-100">

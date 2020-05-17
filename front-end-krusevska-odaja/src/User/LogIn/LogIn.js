@@ -27,7 +27,7 @@ export const LogIn = (props) => {
     }
 
 
-    const handleSignIn = (event) => {
+    function handleSignIn(event) {
         event.preventDefault();
 
         let emailUsernameData = event.target.inputEmailUsername.value;
@@ -38,10 +38,11 @@ export const LogIn = (props) => {
             password: passwordData
         };
         props.logIn(userLogInData);
-    };
+    }
+
     if (currentUser === null) {
         return (
-            <div className="container" style={{marginTop:90}}>
+            <div className="container" style={{marginTop: 90}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">

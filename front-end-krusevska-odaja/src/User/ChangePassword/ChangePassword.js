@@ -22,7 +22,8 @@ export const ChangePassword = (props) => {
         }
         sessionStorage.setItem("error", "false");
     }
-    const handlePasswordChange = (event) => {
+
+    function handlePasswordChange(event) {
         event.preventDefault();
 
         let email = event.target.inputEmail.value;
@@ -40,8 +41,9 @@ export const ChangePassword = (props) => {
             newPassword: password
         };
         props.changePassword(userChangePasswordData);
-    };
-    const validateData = (email, password, confirmPassword) => {
+    }
+
+    function validateData(email, password, confirmPassword) {
         if (!confirmPassword.match(password)) {
             $("#warningConfirmPassword").text("Confirm password doesnt match!" +
                 " Please confirm the above password correctly").show();
@@ -51,10 +53,11 @@ export const ChangePassword = (props) => {
         }
         return true;
 
-    };
+    }
+
     if (currentUser !== null) {
         return (
-            <div className="container" style={{marginTop:80}}>
+            <div className="container" style={{marginTop: 80}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">

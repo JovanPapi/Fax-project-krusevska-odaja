@@ -22,7 +22,8 @@ export const UpdateProfile = (props) => {
         }
         sessionStorage.setItem("error", "false");
     }
-    const handleUpdate = (event) => {
+
+    function handleUpdate(event) {
         event.preventDefault();
 
         let fullName = event.target.inputFullName.value;
@@ -58,7 +59,8 @@ export const UpdateProfile = (props) => {
         };
         props.update(userUpdateData);
     };
-    const validateData = (fullName, username, email) => {
+
+    function validateData(fullName, username, email) {
         if (fullName.trim() === "") {
             $("#warningFullName").text("The field must not be empty!").show();
             return false;
@@ -81,7 +83,8 @@ export const UpdateProfile = (props) => {
 
         }
         return true;
-    };
+    }
+
     if (currentUser !== null) {
         let counter = 1;
         const phoneNumberTds = currentUser.phoneNumber.map((number, key) => {
@@ -97,7 +100,7 @@ export const UpdateProfile = (props) => {
             )
         });
         return (
-            <div className="container" style={{marginTop:80}}>
+            <div className="container" style={{marginTop: 80}}>
                 <br/>
                 <br/>
                 <div className="d-flex justify-content-center h-100">
@@ -141,9 +144,9 @@ export const UpdateProfile = (props) => {
                                            style={{display: 'hidden', marginBottom: 0}}></p>
                                     </div>
                                     <div className="col-md-1">
-                                        <i className="fa fa-warning" style={{color:'red'}}
-                                        title={"This field is to make sure you dont use another's email." +
-                                        " Please enter your email."}></i>
+                                        <i className="fa fa-warning" style={{color: 'red'}}
+                                           title={"This field is to make sure you dont use another's email." +
+                                           " Please enter your email."}></i>
                                     </div>
 
                                 </div>
