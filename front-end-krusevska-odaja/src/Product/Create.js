@@ -35,7 +35,6 @@ export const Create = (props) => {
 
     function handleEdit(event) {
         event.preventDefault();
-
         let productName = event.target.inputProductName.value;
         let productNameTranslated = event.target.inputProductTranslatedName.value;
         let productPrice = event.target.inputProductPrice.value;
@@ -47,7 +46,6 @@ export const Create = (props) => {
         if (!validateData(productName, productNameTranslated, productIngredients)) {
             return;
         }
-        console.log(productIngredients + "dasda");
         const newProductData = {
             id: "",
             name: productName.toUpperCase(),

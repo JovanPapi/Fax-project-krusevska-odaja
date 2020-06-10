@@ -6,6 +6,7 @@ import com.krusevskaodaja.Model.UtilDTO.ProductDTO;
 import com.krusevskaodaja.Repository.InMemoryDB.PopulateDB;
 import com.krusevskaodaja.Repository.JpaProductRepository;
 import com.krusevskaodaja.Service.InterfaceImpl.ProductServiceImpl;
+import com.krusevskaodaja.Service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MimeTypeUtils;
@@ -19,7 +20,7 @@ import java.util.List;
 @RequestMapping(value = "/api/products", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 public class ProductApiController {
 
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
     private final JpaProductRepository productRepository;
     private final PopulateDB populateDB;
 

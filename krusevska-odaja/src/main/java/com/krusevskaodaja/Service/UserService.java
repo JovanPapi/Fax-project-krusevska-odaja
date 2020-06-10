@@ -16,4 +16,6 @@ public interface UserService {
     boolean changePassword(PasswordChangeDTO newPassword) throws SQLException;
 
     UserProfile logInUser(LogInDTO userData);
+
+    UserProfile findByEmail(String email);
 }

@@ -1,5 +1,6 @@
 package com.krusevskaodaja.Service.InterfaceImpl;
 
+import com.krusevskaodaja.Model.Transaction;
 import com.krusevskaodaja.Model.UtilDTO.EditProfileDTO;
 import com.krusevskaodaja.Model.UtilDTO.LogInDTO;
 import com.krusevskaodaja.Model.UtilDTO.PasswordChangeDTO;
@@ -55,7 +56,8 @@ public class UserServiceImpl implements UserService {
         }
 
         UserProfile user = new UserProfile(UUID.randomUUID().toString(), newProfile.getName(), newProfile.getUsername(),
-                newProfile.getEmail(), newProfile.getPassword(), userPhoneNumbers, null, "User", false);
+                newProfile.getEmail(), newProfile.getPassword(), userPhoneNumbers, null,
+                "User", false, new ArrayList<Transaction>());
 
         userPhoneNumbers.forEach(userPhoneNumber -> userPhoneNumber.setUser(user));
 
@@ -130,5 +132,11 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         return checkIn.get();
+    }
+
+    @Override
+    public UserProfile findByEmail(String email) {
+        return userRepository.findByEmail(email).get();
+
     }
 }

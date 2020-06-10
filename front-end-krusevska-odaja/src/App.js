@@ -26,6 +26,8 @@ import {Edit} from "./Product/Edit";
 import {IngredientService} from "./ServerRequests/IngredientService";
 import {Create} from "./Product/Create";
 import {SuggestedProduct} from "./Product/SuggestedProduct";
+import {UserCart} from "./User/Cart/ProductCart";
+import {TransactionService} from "./ServerRequests/Transaction";
 
 class App extends React.Component {
     constructor(props) {
@@ -47,7 +49,7 @@ class App extends React.Component {
         });
         IngredientService.fetchAllIngredients().then(response => {
             this.setState({ingredients: response.data})
-        })
+        });
     }
 
     //functions for the user
@@ -144,6 +146,30 @@ class App extends React.Component {
         }).catch(error => {
             alert(error.response.data.message);
             this.props.history.push("/my-reservation");
+        })
+    };
+    addProductToCart = (productToCart, e) => {
+        //TODO REMEMBER! here we use NATIVE e.preventDefault by pass    ing e param (regular one works only with forms - submit)
+        e.preventDefault();
+        let userCart = [];
+        if (sessionStorage.getItem("userCart") === null) {
+            userCart.push(productToCart);
+        } else {
+            userCart = JSON.parse(sessionStorage.getItem("userCart"));
+            userCart.push(productToCart);
+        }
+        sessionStorage.setItem("userCart", JSON.stringify(userCart));
+    };
+
+    //user transaction
+    userPayment = (paymentData) => {
+        TransactionService.transaction(paymentData)
+            .then(response => {
+                alert("Your transaction was successfully, thank you.");
+                this.props.history.push("/home");
+            }).catch(error => {
+            alert(error.response.data.message);
+            this.props.history.push("/my-cart");
         })
     };
 
@@ -263,16 +289,17 @@ class App extends React.Component {
                         </div>
                         <div className="social">
                             <ul>
-                                <li className="facebook" style={{width: 33}}
+                                <li className="facebook" style={{width: 33}} title={"Edit this product"}
                                     onClick={() => this.findProductToEdit(product.id, product.name.toLowerCase(), currentMenuSection)}>
-                                    <a
-                                        href=""><i
+                                    <a href=""><i
                                         className="fa fa-edit"> </i></a></li>
 
-                                <li className="twitter" style={{width: 34}}><a href=""><i
-                                    className="fa fa-plus-circle"> </i></a></li>
+                                <li className="twitter" style={{width: 34}} title={"Add to cart"}
+                                    onClick={e => this.addProductToCart(product, e)}>
+                                    <a href=""><i
+                                        className="fa fa-plus-circle"> </i></a></li>
 
-                                <li className="google-plus" style={{width: 33}}
+                                <li className="google-plus" style={{width: 33}} title={"Delete this product"}
                                     onClick={() => this.deleteProduct(product.id, currentMenuSection)}>
                                     <a href=""><i
                                         className="fa fa-remove"> </i></a></li>
@@ -314,6 +341,11 @@ class App extends React.Component {
                     </Route>
                     <Route path={"/log-in"} render={() =>
                         <LogIn logIn={this.userLogIn}/>}>
+                    </Route>
+
+                    {/*product cart route*/}
+                    <Route path={"/my-cart"} render={() =>
+                        <UserCart makeTransaction={this.userPayment}/>}>
                     </Route>
 
                     {/*reservation routes*/}

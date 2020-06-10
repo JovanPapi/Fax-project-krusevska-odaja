@@ -3,6 +3,7 @@ package com.krusevskaodaja.Web;
 import com.krusevskaodaja.Model.ApiResponse.ApiResponse;
 import com.krusevskaodaja.Model.UtilDTO.ReservationDTO;
 import com.krusevskaodaja.Service.InterfaceImpl.ReservationServiceImpl;
+import com.krusevskaodaja.Service.ReservationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 @RequestMapping(value = "/api/reservations", produces = "application/json")
 public class ReservationApiController {
 
-    private final ReservationServiceImpl reservationService;
+    private final ReservationService reservationService;
 
     public ReservationApiController(ReservationServiceImpl reservationService) {
         this.reservationService = reservationService;

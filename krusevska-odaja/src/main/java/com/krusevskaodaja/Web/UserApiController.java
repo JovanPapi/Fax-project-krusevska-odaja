@@ -8,6 +8,7 @@ import com.krusevskaodaja.Model.UtilDTO.PasswordChangeDTO;
 import com.krusevskaodaja.Model.UtilDTO.SignUpDTO;
 import com.krusevskaodaja.Repository.JpaUserRepository;
 import com.krusevskaodaja.Service.InterfaceImpl.UserServiceImpl;
+import com.krusevskaodaja.Service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MimeTypeUtils;
@@ -20,7 +21,7 @@ import java.sql.SQLException;
 @RequestMapping(value = "/api/users", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 public class UserApiController {
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
     private final JpaUserRepository userRepository;
 
     public UserApiController(UserServiceImpl userService, JpaUserRepository userRepository) {

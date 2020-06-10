@@ -4,6 +4,8 @@ import slika1 from "./slika1.jpg"
 import slika2 from "./slika2.jpg"
 import slika3 from "./slika3.jpg"
 
+//TODO this will be page with dynamic content. It will be shown in in sequence order so the user can list
+//TODO forward and backwards to view the desired content
 export function HomeEvents() {
     return (
         <div className="container home-event" style={{marginTop:90}}>

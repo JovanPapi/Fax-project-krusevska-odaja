@@ -55,6 +55,10 @@ public class UserProfile {
     @Column
     private boolean termsChecked;
 
+    @Transient
+    @OneToMany(mappedBy = "user")
+    private List<Transaction> transactions;
+
     public int checkPhoneNumbers(List<UserPhoneNumber> numbers) {
         for (UserPhoneNumber userPhoneNumber : this.phoneNumber) {
             int counter = 3;
