@@ -55,3 +55,9 @@ You can also construct complex phrases like:
 ...
 
 # When opening menu action, please click twice to open the drop down list
+
+# User transaction
+
+The transaction is processed via Stripe. You can make a transaction only if you have products in your cart. 
+Then you type URL /my-cart or click the button View my cart via /menu/(salads;grill;drinks e.g.).
+The rest is shown in the checkout modal which will appear after clicking the "Pay with card" button.
