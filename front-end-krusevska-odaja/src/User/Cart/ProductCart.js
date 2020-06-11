@@ -2,15 +2,25 @@ import React from "react";
 import $ from "jquery";
 import StripeCheckout from "react-stripe-checkout";
 import logo from "./krusevska-odaja-logo.jpg";
-import {Redirect} from "react-router-dom";
 
 export const UserCart = (props) => {
-    const cartProducts = JSON.parse(sessionStorage.getItem("userCart"));
+    let cartProducts = JSON.parse(sessionStorage.getItem("userCart"));
     const publicKey = process.env.REACT_APP_PUBLIC_KEY;
     let finalPriceToPay = 0;
     let finalPriceDenari = 0;
     let finalPriceEUR = 0;
     let tds = null;
+
+    function deleteProductFromCart(productId) {
+        cartProducts = cartProducts.filter(product => {
+            if (product.id !== productId) {
+                return product;
+            }
+        });
+        sessionStorage.setItem("userCart", JSON.stringify(cartProducts));
+        window.location.reload();
+    }
+
     if (cartProducts !== null) {
         tds = cartProducts.map((product, key) => {
             let ingredients = "";
@@ -36,6 +46,10 @@ export const UserCart = (props) => {
                     <td>{product.type}</td>
                     <td>{product.description}</td>
                     <td>{ingredients}</td>
+                    <td>
+                        <button onClick={() => deleteProductFromCart(product.id)} className="btn btn-danger">Delete
+                        </button>
+                    </td>
                 </tr>
             )
         });
@@ -70,7 +84,7 @@ export const UserCart = (props) => {
                     <div className="panel">
                         <div className="panel-heading  w-100 bg-dark"
                              style={{height: 40, borderRadius: 10, color: 'white'}}>
-                            <h2>Suggested Products</h2>
+                            <h2>My product cart</h2>
                         </div>
                         <div className="panel-body w-100">
                             <table className="table">
@@ -83,6 +97,7 @@ export const UserCart = (props) => {
                                     <th>Type</th>
                                     <th>Description</th>
                                     <th>Ingredients</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody className="bg-light">

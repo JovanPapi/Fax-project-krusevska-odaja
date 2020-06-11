@@ -143,7 +143,7 @@ export const VoiceAssistant = (props) => {
     }
 
     function textNotRecognized() {
-        return "Im sorry, i didnt quite get that. Can you repeat what you said please ? Use the key words " +
+        return "Sorry, can you reapeat what u said please ? Use the key words " +
             "OPEN, REDIRECT and PAGE. For example, tell me to OPEN SALAD MENU!"
     }
 

@@ -41,6 +41,9 @@ export const Reservation = (props) => {
     }
 
     if (currentUser !== null) {
+        if (currentUser.reservation !== null) {
+            return <Redirect to={"/my-reservation"}/>
+        }
         let date = new Date();
         let year = date.getFullYear();
         // default dava minus 1 mesec, neznam zosto

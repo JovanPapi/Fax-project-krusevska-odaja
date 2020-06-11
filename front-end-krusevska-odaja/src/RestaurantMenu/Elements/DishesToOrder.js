@@ -13,6 +13,7 @@ import {Link} from "react-router-dom";
 export const DisheshToOrder = (props) => {
     let disheshToOrderImages = [beanSoupWithFish, "", sarmaOdaja, traditionalPanOdaja, lambPotOdaja, jagneskiSirden];
     const dishesToOrder = props.splitProducts("DIESHESTOORDER", disheshToOrderImages, "dishes-to-order");
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     return (
         <div className="container" id="restaurant-element">
             <br/>
@@ -29,9 +30,9 @@ export const DisheshToOrder = (props) => {
             </div>
             <br/>
             <div className="row justify-content-center">
-                <div className="col-md-3">
+                {currentUser !== null && currentUser.role === "Admin" ? <div className="col-md-3">
                     <Link to={"/product/create"} className="btn btn-primary mb-3">Create product</Link>
-                </div>
+                </div> : null}
                 <br/>
                 <div className="col-md-3">
                     <Link to={"/my-cart"} className="btn btn-primary mb-3" style={{width: 131}}>View my cart</Link>

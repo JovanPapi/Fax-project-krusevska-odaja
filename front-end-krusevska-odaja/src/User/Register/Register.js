@@ -6,6 +6,7 @@ import $ from "jquery";
 export const Register = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     const error = sessionStorage.getItem("error");
+
     if (error !== null && error.match("true")) {
         let urlSearchParams = window.location.search;
         let errorMessage = "";
@@ -74,7 +75,7 @@ export const Register = (props) => {
         };
         console.log(userRegisterData);
         props.register(userRegisterData);
-    };
+    }
 
     function validateData(email, password, confirmPassword) {
         if (!email.endsWith(".com")) {

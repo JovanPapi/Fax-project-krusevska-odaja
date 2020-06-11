@@ -6,6 +6,7 @@ import $ from "jquery";
 export const LogIn = (props) => {
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     const error = sessionStorage.getItem("error");
+
     if (error !== null && error.match("true")) {
         let urlSearchParams = window.location.search;
         let errorMessage = "";

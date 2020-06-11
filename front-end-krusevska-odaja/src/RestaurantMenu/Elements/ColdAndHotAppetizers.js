@@ -25,6 +25,7 @@ export const ColdAndHotAppetizers = (props) => {
     let coldAndHotAppetizersImages = [hardCheese, boardOdaja, yellowCheese, scrambledEggs, goatCheese, pie, olives, sheepCheese
         , omlette, grilledMushrooms, chickenFingers, pieWithLeek, pieWithSpinach, pituliciWithGarlic, breadedYellowCheese];
     const coldAndHotAppetizers = props.splitProducts("APPETIZERS", coldAndHotAppetizersImages, "cold-and-hot-appetizers");
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
     return (
         <div className="container" id="restaurant-element">
             <br/>
@@ -41,9 +42,9 @@ export const ColdAndHotAppetizers = (props) => {
             </div>
             <br/>
             <div className="row justify-content-center">
-                <div className="col-md-3">
+                {currentUser !== null && currentUser.role === "Admin" ? <div className="col-md-3">
                     <Link to={"/product/create"} className="btn btn-primary mb-3">Create product</Link>
-                </div>
+                </div> : null}
                 <br/>
                 <div className="col-md-3">
                     <Link to={"/my-cart"} className="btn btn-primary mb-3" style={{width: 131}}>View my cart</Link>

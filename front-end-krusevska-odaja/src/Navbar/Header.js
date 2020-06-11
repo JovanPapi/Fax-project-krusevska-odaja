@@ -19,7 +19,7 @@ export const Header = (props) => {
             </button>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto" style={{margin:'auto',paddingRight:100}}>
+                <ul className="navbar-nav mr-auto" style={{margin: 'auto', paddingRight: 100}}>
                     <li className="nav-item active">
                         <Link to={"/home"} className="nav-link" href="#">
                             <i className="fa fa-home">
@@ -36,15 +36,18 @@ export const Header = (props) => {
                             </i>
                             Menu
                         </Link>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor:'gray'}}>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdown"
+                             style={{backgroundColor: 'gray'}}>
                             <Link to={"/menu/salads"} className="dropdown-item">Салати /
                                 Salads</Link>
                             <Link to={"/menu/cold-and-hot-appetizers"} className="dropdown-item">Ладни и топли
                                 предјадења / Cold and hot appetizers</Link>
                             <Link to={"/menu/grill"} className="dropdown-item">Скара / Grill</Link>
-                            <Link to={"/menu/garnish-and-extras"} className="dropdown-item">Гарнир и додатоци / Garnish and
+                            <Link to={"/menu/garnish-and-extras"} className="dropdown-item">Гарнир и додатоци / Garnish
+                                and
                                 extras</Link>
-                            <Link to={"/menu/desserts-and-snacks"} className="dropdown-item">Десерти и апетисани / Desserts
+                            <Link to={"/menu/desserts-and-snacks"} className="dropdown-item">Десерти и апетисани /
+                                Desserts
                                 and snacks</Link>
                             <Link to={"/menu/drinks"} className="dropdown-item">Пијалоци / Drinks</Link>
                             <div className="dropdown-divider"></div>
@@ -52,9 +55,14 @@ export const Header = (props) => {
                                 order</Link>
                             <Link to={"/menu/specialities-of-the-house"} className="dropdown-item">Специјалитети на
                                 куќата / Specialities of the house</Link>
-                            <div className="dropdown-divider"></div>
-                            <Link to={"/product/suggested"} className="dropdown-item">Предложени продукти / Suggested
-                                products</Link>
+
+                            {currentUser !== null && currentUser.role === "Admin" ?
+                                <div className="dropdown-divider"></div> : null}
+                            {currentUser !== null && currentUser.role === "Admin" ?
+                                <Link to={"/product/suggested"} className="dropdown-item">Предложени продукти /
+                                    Suggested
+                                    products</Link> : null}
+
                         </div>
                     </li>
                     <li className="nav-item">

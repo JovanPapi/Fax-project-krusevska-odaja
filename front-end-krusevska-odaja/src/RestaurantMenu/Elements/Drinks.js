@@ -167,40 +167,43 @@ export class Drinks extends React.Component {
         let aperitivesImages = [baileys, vodka, cognac, martini, mastika, pelinkovac, rum, smirnoff, stomaklija
             , brandyTraditionalTikvesWhite, brandyTraditionalTikves, brandyTraditionalTikvesVS
             , ouzoPhilippos, ouzoPlomari, stock, jagdTraum, jagerMaister, jameson, jimBeam, gin, johnyWalkerRedLabel];
-        const aperitives = this.props.splitProducts("APERITIVES", aperitivesImages,"drinks");
+        const aperitives = this.props.splitProducts("APERITIVES", aperitivesImages, "drinks");
 
         let specialWinesImages = [aleksandriaCuveeWhite, aleksandriaCuveeRed, barovoWhiteAndRed
             , whiteWatherWhineWhiteAndRed, cabernetSauvignon, rkacateli, sauvignonBlanc];
-        const specialWines = this.props.splitProducts("SPECIALWINE", specialWinesImages,"drinks");
+        const specialWines = this.props.splitProducts("SPECIALWINE", specialWinesImages, "drinks");
 
         let winesImages = [aleksandriaWhiteLarge, aleksandriaRedLarge, aleksandriaWhiteSmall, aleksandriaRedSmall
             , bunar, vitach, vranec, kavadarka, rozeLarge, rozeMiddle, smederevka, tgaLarge, tgaSmall
             , temjanikaLarge, temjanikaSmall, traminecLarge, traminecSmall, rozeLarge, rozeMiddle, glassOfWine];
-        const wines = this.props.splitProducts("WINE", winesImages,"drinks");
+        const wines = this.props.splitProducts("WINE", winesImages, "drinks");
 
         let beerImages = [becks, kamenitza, skopsko, staropramen, stellaArtois, jelen];
         const beers = this.props.splitProducts("BEER", beerImages);
 
         let coffeImages = [espresso, cappuchino, makedonsko, macchiato, nescafe];
-        const coffee = this.props.splitProducts("COFFEE", coffeImages,"drinks");
+        const coffee = this.props.splitProducts("COFFEE", coffeImages, "drinks");
 
         let teaImages = [teaa];
-        const tea = this.props.splitProducts("TEA", teaImages,"drinks");
+        const tea = this.props.splitProducts("TEA", teaImages, "drinks");
 
         let softDrinkImages = [juice, cocaCola, pelisterkaSparklingSmall, pelisterkaStillSmall
             , pelisterkaMiddle, pelisterkaSparklingLarge, sprite, tonic, fanta, schweppes];
         const softDrinks = this.props.splitProducts("SOFTDRINKS", softDrinkImages);
+        const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
         return (
-            <div className="container w-50" style={{marginTop:100}}>
+            <div className="container w-50" style={{marginTop: 100}}>
                 <h2 style={{color: 'white'}}>View all your desired drinks!</h2>
                 <div className="accordion" id="accordion">
                     <div className="panel">
                         <div className="row justify-content-center">
-                            <div className="col-md-3">
+                            {currentUser !== null && currentUser.role === "Admin" ? <div className="col-md-3">
                                 <Link to={"/product/create"} className="btn btn-primary mb-3">Create product</Link>
-                            </div><br/>
+                            </div> : null}
+                            <br/>
                             <div className="col-md-3">
-                                <Link to={"/my-cart"} className="btn btn-primary" style={{width:131}}>View my cart</Link>
+                                <Link to={"/my-cart"} className="btn btn-primary" style={{width: 131}}>View my
+                                    cart</Link>
                             </div>
                         </div>
                         <div className="panel-title bg-dark" style={{height: 40, borderRadius: 15}}>

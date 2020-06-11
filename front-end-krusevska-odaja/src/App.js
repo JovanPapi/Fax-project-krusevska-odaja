@@ -166,6 +166,7 @@ class App extends React.Component {
         TransactionService.transaction(paymentData)
             .then(response => {
                 alert("Your transaction was successfully, thank you.");
+                sessionStorage.removeItem("userCart")
                 this.props.history.push("/home");
             }).catch(error => {
             alert(error.response.data.message);
@@ -318,6 +319,7 @@ class App extends React.Component {
                     <Header logOff={this.userLogOff}/>
                 </div>
                 <div className="main">
+
                     {/*basic routes*/}
                     <Route path={"/home"} render={() =>
                         <HomeEvents/>}>
