@@ -54,4 +54,11 @@ You can also construct complex phrases like:
 
 ...
 
+# User transaction
+
+The transaction is processed via Stripe. You can make a transaction only if you have products in your cart. 
+Then you type URL /my-cart or click the button View my cart via /menu/(salads; grill; drinks e.g.).
+When you click the "Pay with card" button, it will pop-up a modal. You can use credit card number: 5555555555554444 and any 3 digit CVC number.
+WARNING: This is programmed to be only a test transaction (for testing application) and it use testing credit card number.
+
 # When opening menu action, please click twice to open the drop down list
