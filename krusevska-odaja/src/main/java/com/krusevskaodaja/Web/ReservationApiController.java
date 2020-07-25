@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-
 @RestController
 @CrossOrigin("http://localhost:3000")
 @RequestMapping(value = "/api/reservations", produces = "application/json")
@@ -34,6 +32,7 @@ public class ReservationApiController {
     @DeleteMapping("/delete/{reservationId}")
     public ResponseEntity<?> deleteReservation(@PathVariable String reservationId) {
         if (!reservationService.deleteReservation(reservationId)) {
+            // ReservationDeleteException
             return new ResponseEntity<>(new ApiResponse(false, "There was something wrong when trying" +
                     "to delete the reservation! Please try again."), HttpStatus.BAD_REQUEST);
         } else {

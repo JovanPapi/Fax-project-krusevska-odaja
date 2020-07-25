@@ -144,7 +144,8 @@ class App extends React.Component {
             this.setState({currentUser: user});
             this.props.history.push("/home");
         }).catch(error => {
-            alert(error.response.data.message);
+            alert("There was something wrong when trying" +
+                "to delete the reservation! Please try again.");
             this.props.history.push("/my-reservation");
         })
     };

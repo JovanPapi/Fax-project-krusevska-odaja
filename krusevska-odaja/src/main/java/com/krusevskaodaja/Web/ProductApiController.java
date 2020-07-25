@@ -49,6 +49,7 @@ public class ProductApiController {
     public ResponseEntity<?> saveNewProduct(@RequestBody ProductDTO newProduct) {
         if (productRepository.existsByName(newProduct.getName().toUpperCase())
                 && productRepository.existsByType(newProduct.getType().toUpperCase())) {
+            // ProductAlreadyExistsException
             return new ResponseEntity<>(new ApiResponse(false, "The product you sent " +
                     "is already created by the chefs. Go to menu section and view the products."), HttpStatus.BAD_REQUEST);
         }
@@ -59,6 +60,7 @@ public class ProductApiController {
     @PatchMapping("/edit-product")
     public ResponseEntity<?> updateProduct(@RequestBody ProductDTO editedProduct) {
         if (!productRepository.existsById(editedProduct.getId())) {
+            // ProductNotAvailableException
             return new ResponseEntity<>(new ApiResponse(false, "The product you want to edit" +
                     "is no longer available or has been deleted."), HttpStatus.BAD_REQUEST);
         }
@@ -69,6 +71,7 @@ public class ProductApiController {
     @DeleteMapping("/delete/{productId}")
     public ResponseEntity<?> deleteProduct(@PathVariable String productId) {
         if (!productRepository.existsById(productId)) {
+            // ProductNotAvailableException
             return new ResponseEntity<>(new ApiResponse(false, "The product you want to delete " +
                     "is no longer available or it's already deleted."), HttpStatus.BAD_REQUEST);
         }
