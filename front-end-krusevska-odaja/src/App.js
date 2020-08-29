@@ -1,33 +1,33 @@
 import React from 'react';
 import './App.css';
 import {Link, Route, withRouter} from "react-router-dom";
-import {Header} from "./Navbar/Header";
-import {LogIn} from "./User/LogIn/LogIn";
-import {HomeEvents} from "./Home/HomeEvents";
-import {AboutUs} from "./AboutUs/AboutUs";
-import {UserService} from "./ServerRequests/UserService";
-import {ProductService} from "./ServerRequests/ProductService";
-import {Register} from "./User/Register/Register";
-import {ChangePassword} from "./User/ChangePassword/ChangePassword";
-import {Profile} from "./User/Profile/Profile";
-import {UpdateProfile} from "./User/UpdateProfile/UpdateProfile";
-import {Reservation} from "./Reservation/Reservation";
-import {ReservationService} from "./ServerRequests/ReservationService";
-import {MyReservation} from "./Reservation/MyReservation";
-import {Salads} from "./RestaurantMenu/Elements/Salads";
-import {ColdAndHotAppetizers} from "./RestaurantMenu/Elements/ColdAndHotAppetizers";
-import {Grill} from "./RestaurantMenu/Elements/Grill";
-import {GarnishAndExtras} from "./RestaurantMenu/Elements/GarnishAndExtras";
-import {DessertsAndSnacks} from "./RestaurantMenu/Elements/DessertsAndSnacks";
-import {Drinks} from "./RestaurantMenu/Elements/Drinks";
-import {DisheshToOrder} from "./RestaurantMenu/Elements/DishesToOrder";
-import {SpecialitiesOfTheHouse} from "./RestaurantMenu/Elements/SpecialitiesOfTheHouse";
-import {Edit} from "./Product/Edit";
-import {IngredientService} from "./ServerRequests/IngredientService";
-import {Create} from "./Product/Create";
-import {SuggestedProduct} from "./Product/SuggestedProduct";
-import {UserCart} from "./User/Cart/ProductCart";
-import {TransactionService} from "./ServerRequests/Transaction";
+import {Header} from "./navbar/Header";
+import {LogIn} from "./user/log-in/LogIn";
+import {HomeEvents} from "./home/HomeEvents";
+import {AboutUs} from "./about-us/AboutUs";
+import {UserService} from "./server-requests/UserService";
+import {ProductService} from "./server-requests/ProductService";
+import {Register} from "./user/register/Register";
+import {ChangePassword} from "./user/change-password/ChangePassword";
+import {Profile} from "./user/profile/Profile";
+import {UpdateProfile} from "./user/update-profile/UpdateProfile";
+import {Reservation} from "./reservation/Reservation";
+import {ReservationService} from "./server-requests/ReservationService";
+import {MyReservation} from "./reservation/MyReservation";
+import {Salads} from "./reservation-menu/elements/Salads";
+import {ColdAndHotAppetizers} from "./reservation-menu/elements/ColdAndHotAppetizers";
+import {Grill} from "./reservation-menu/elements/Grill";
+import {GarnishAndExtras} from "./reservation-menu/elements/GarnishAndExtras";
+import {DessertsAndSnacks} from "./reservation-menu/elements/DessertsAndSnacks";
+import {Drinks} from "./reservation-menu/elements/Drinks";
+import {DisheshToOrder} from "./reservation-menu/elements/DishesToOrder";
+import {SpecialitiesOfTheHouse} from "./reservation-menu/elements/SpecialitiesOfTheHouse";
+import {Edit} from "./product/Edit";
+import {IngredientService} from "./server-requests/IngredientService";
+import {Create} from "./product/Create";
+import {SuggestedProduct} from "./product/SuggestedProduct";
+import {UserCart} from "./user/cart/ProductCart";
+import {TransactionService} from "./server-requests/Transaction";
 
 class App extends React.Component {
     constructor(props) {
@@ -50,6 +50,7 @@ class App extends React.Component {
         IngredientService.fetchAllIngredients().then(response => {
             this.setState({ingredients: response.data})
         });
+        
     }
 
     //functions for the user
